@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PoolData
 {
@@ -47,10 +48,27 @@ public class PoolManager : BaseManager<PoolManager>
         }
         else
         {
-            gameobj = GameObject.Instantiate(Resources.Load<GameObject>(name));
+            gameobj = ResourceManager.GetInstance().Load<GameObject>(name);
             gameobj.name = name;
         }
         return gameobj;
+    }
+
+
+    public void GetObjAsync(string name, UnityAction<GameObject> callBack)
+    {
+
+        if(pool.ContainsKey(name) && pool[name].poolList.Count > 0)
+        {
+            callBack(pool[name].GetObj());
+        }
+        else
+        {
+            ResourceManager.GetInstance().LoadAsync<GameObject>(name, (o) =>{
+                o.name = name;
+                callBack(o);
+            });
+        }
     }
 
     public void PushObj(string name, GameObject gameobj)

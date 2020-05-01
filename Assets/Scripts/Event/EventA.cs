@@ -8,10 +8,16 @@ public class EventA : MonoBehaviour
     void Start()
     {
         Debug.Log("Add A");
-        EventCenter.GetInstance().AddEventListener("DoIt", DoA);
+        EventCenter.GetInstance().AddEventListener<EventTrigger>("DoIt", DoA);
+        EventCenter.GetInstance().AddEventListener("Win",Win);
     }
-    public void DoA(object info)
+
+    public void Win()
     {
-        Debug.Log("Do A" + (info as EventTrigger).namea);
+
+    }
+    public void DoA(EventTrigger info)
+    {
+        Debug.Log("Do A " + info.namea);
     }
 }

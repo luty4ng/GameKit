@@ -8,9 +8,9 @@ public class EventB : MonoBehaviour
     void Start()
     {
         Debug.Log("Add B");
-        EventCenter.GetInstance().AddEventListener("DoIt", DoB);
+        EventCenter.GetInstance().AddEventListener<EventTrigger>("DoIt", DoB);
     }
-    public void DoB(object info)
+    public void DoB(EventTrigger info)
     {
         Debug.Log("Do B");
     }
