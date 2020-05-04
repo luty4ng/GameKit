@@ -36,7 +36,7 @@ public class AudioManager : BaseManager<AudioManager>
             BGM = obj.AddComponent<AudioSource>();
         }
 
-        ResourceManager.GetInstance().LoadAsync<AudioClip>("Resources/BGM/" + name, (clip) =>
+        ResourceManager.GetInstance().LoadAsync<AudioClip>("Audio/BGM/" + name, (clip) =>
         {
             BGM.clip = clip;
             BGM.loop = true;
@@ -72,7 +72,7 @@ public class AudioManager : BaseManager<AudioManager>
             soundObj = new GameObject();
             soundObj.name = "Sound";
         }
-        ResourceManager.GetInstance().LoadAsync<AudioClip>("Resources/Sound/" + name, (clip)=>
+        ResourceManager.GetInstance().LoadAsync<AudioClip>("Audio/Sound/" + name, (clip)=>
         {
             AudioSource source = soundObj.AddComponent<AudioSource>();
             source.clip = clip;
