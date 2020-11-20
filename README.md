@@ -9,4 +9,4 @@ Moudles
 - ScenesManager
 - ResourceManager
 - AudioManager
-- FinitStateMachine
+- FiniteStateMachine
