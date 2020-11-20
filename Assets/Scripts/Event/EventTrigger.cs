@@ -24,6 +24,5 @@ public class EventTrigger : MonoBehaviour
         Debug.Log("Begin Do it");
         EventCenter.GetInstance().EventTrigger<EventTrigger>("DoIt", this);
         EventCenter.GetInstance().EventTrigger("Win");
-        // 处理 EventTrigger类的信息
     }
 }

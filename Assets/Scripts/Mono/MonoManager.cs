@@ -11,7 +11,6 @@ public class MonoManager : BaseManager<MonoManager>
     {
         GameObject obj = new GameObject("MonoController");
         controller = obj.AddComponent<MonoController>();
-        Debug.Log("创建成功！");
     }
 
     public void AddUpdateListener(UnityAction func)
