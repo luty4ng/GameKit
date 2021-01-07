@@ -19,13 +19,13 @@ public class PlayerAttack : States {
         base.OnExit();
     }
 
-    public override void Excute<PlayerController>(PlayerController player)
+    public override void Excute<StateController>(StateController player)
     {
         Debug.Log("Player Attack");
-        Decision<PlayerController>(player);
+        Decision<StateController>(player);
     }
 
-    public override void Decision<PlayerController>(PlayerController player)
+    public override void Decision<StateController>(StateController player)
     {
         // 未来可以封装Unity生命周期的监听方法（MonoManager）
         

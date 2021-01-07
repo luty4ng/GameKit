@@ -27,39 +27,41 @@ public class InputManager : BaseManager<InputManager>
         }
     }
 
-    private void CheckMovement()
+    private void CheckButton(String name)
+    {
+        if(Input.GetButtonDown(name))
+            EventCenter.GetInstance().EventTrigger("ButtonDown", name);
+        
+        if(Input.GetButtonUp(name))
+            EventCenter.GetInstance().EventTrigger("ButtonUp", name);
+    }
+
+    private void CheckAxis()
     {
         float Horizontal = Input.GetAxis("Horizontal");
         float Vertical = Input.GetAxis("Vertical");
-
-        EventCenter.GetInstance().EventTrigger<float>("Horizontal", Horizontal);
-        EventCenter.GetInstance().EventTrigger<float>("Vertical", Vertical);
+        (float, float) Axis = (Horizontal, Vertical);
+        EventCenter.GetInstance().EventTrigger<(float, float)>("Axis", Axis);
     }
 
-    private void CheckButtonDown(String name)
+    private void CheckAxisRaw()
     {
-        if(Input.GetButtonDown(name))
-            EventCenter.GetInstance().EventTrigger(name + " ButtonDown");
-    }
-
-    private void CheckButtonUp(string name)
-    {
-        if(Input.GetButtonUp(name))
-            EventCenter.GetInstance().EventTrigger(name + " ButtonUp");
+        float Horizontal = Input.GetAxisRaw("Horizontal");
+        float Vertical = Input.GetAxisRaw("Vertical");
+        (float, float) AxisRaw = (Horizontal, Vertical);
+        EventCenter.GetInstance().EventTrigger<(float, float)>("AxisRaw", AxisRaw);
     }
 
     private void MyUpdate()
     {
         if(!isActive)
             return;
-        CheckKeyCode(KeyCode.Q);
-        CheckKeyCode(KeyCode.E);
+        //CheckKeyCode(KeyCode.W);
+        //CheckKeyCode(KeyCode.A);
         //CheckKeyCode(KeyCode.S);
         //CheckKeyCode(KeyCode.D);
 
-        CheckMovement();
-        CheckButtonDown("Jump");
-        CheckButtonDown("Fire1");
-        CheckButtonUp("Fire1");
+        CheckAxis();
+        CheckAxisRaw();
     }
 }

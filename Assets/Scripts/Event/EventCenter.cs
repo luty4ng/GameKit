@@ -52,6 +52,7 @@ public class EventCenter : BaseManager<EventCenter>
         }
     }
 
+    
     public void EventTrigger<T>(string name, T info)
     {
         // 在这个函数里可以处理传参信息 info

@@ -17,13 +17,13 @@ public class PlayerFocus : States {
         base.OnExit();
     }
     
-    public override void Excute<PlayerController>(PlayerController player)
+    public override void Excute<StateController>(StateController player)
     {
         Debug.Log("Player Focus");
-        Decision<PlayerController>(player);
+        Decision<StateController>(player);
     }
 
-    public override void Decision<PlayerController>(PlayerController player)
+    public override void Decision<StateController>(StateController player)
     {
         Debug.Log("Reasons Focus");
         if(Input.GetKeyDown(KeyCode.W))

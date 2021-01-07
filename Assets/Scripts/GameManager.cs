@@ -18,7 +18,10 @@ public class GameManager : MonoBehaviour {
         {
             Destroy(gameObject);
         }
+    }
 
-
+    void Start()
+    {
+        InputManager.GetInstance().SetActive(true);
     }
 }
