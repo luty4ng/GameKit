@@ -1,4 +1,4 @@
-### A brief Unity framework for the daily development of my independent projects
+### A Unity framework for the daily development of my independent projects
 
 Moudles
 - InputManager
@@ -9,4 +9,3 @@ Moudles
 - ScenesManager
 - ResourceManager
 - AudioManager
-- FiniteStateMachine
