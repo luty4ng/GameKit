@@ -1,6 +1,6 @@
-### A Unity framework for the daily development of my independent projects
+### A Unity framework for my daily development
 
-Moudles
+Singleton
 - InputManager
 - EventManager
 - PoolManager
@@ -9,3 +9,14 @@ Moudles
 - ScenesManager
 - ResourceManager
 - AudioManager
+
+AI
+- StateMachine Non-Scriptable Version
+- StateMachine Scriptable Version (In progress)
+
+UI
+- PausePanel
+
+Gameplay
+- TopDownMoving
+
