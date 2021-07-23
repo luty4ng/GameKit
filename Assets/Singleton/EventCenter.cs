@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-// 里式转化原则  基类可以转化为子类  声明使用积累， 方法使用子类， 可以起到局部方法使用泛型的特点
-// 利用泛型给委托传参
 public interface IEventInfo { }
 public class EventInfo<T> : IEventInfo
 {
@@ -95,5 +93,10 @@ public class EventCenter : BaseManager<EventCenter>
     public void Clear()
     {
         events.Clear();
+    }
+
+    public Dictionary<string, IEventInfo> GetEvents()
+    {
+        return events;
     }
 }

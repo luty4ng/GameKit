@@ -6,6 +6,7 @@ using UnityEngine;
 public class InputManager : BaseManager<InputManager>
 {
     private bool isActive = false;
+    
     public InputManager()
     {
         MonoManager.GetInstance().AddUpdateListener(MyUpdate);

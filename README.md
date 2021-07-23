@@ -11,8 +11,7 @@ Singleton
 - AudioManager
 
 AI
-- StateMachine Non-Scriptable Version
-- StateMachine Scriptable Version (In progress)
+- StateMachine
 
 UI
 - PausePanel

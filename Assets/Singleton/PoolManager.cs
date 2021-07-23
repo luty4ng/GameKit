@@ -11,7 +11,7 @@ public class PoolData
     public PoolData(GameObject obj,  GameObject poolObj)
     {
         fatherObj = new GameObject(obj.name);
-        fatherObj.transform.parent = poolObj.transform;
+        fatherObj.transform.SetParent(poolObj.transform);
         poolList = new List<GameObject>(){};
         PushObj(obj);
     }
@@ -19,7 +19,7 @@ public class PoolData
     public void PushObj(GameObject gameobj)
     {
         poolList.Add(gameobj);
-        gameobj.transform.parent = fatherObj.transform;
+        gameobj.transform.SetParent(fatherObj.transform);
         gameobj.SetActive(false);
     }
 
@@ -28,7 +28,7 @@ public class PoolData
         GameObject gameobj = null;
         gameobj = poolList[0];
         poolList.RemoveAt(0);
-        gameobj.transform.parent = null;
+        gameobj.transform.SetParent(null);
         gameobj.SetActive(true);
         return gameobj;
     }
@@ -54,6 +54,23 @@ public class PoolManager : BaseManager<PoolManager>
         return gameobj;
     }
 
+    public GameObject GetObj(string name, GameObject shotObj, Vector3 position, Quaternion quaternion)
+    {
+        GameObject gameobj = null;
+        
+        if(pool.ContainsKey(name) && pool[name].poolList.Count > 0)
+        {
+            gameobj = pool[name].GetObj();
+            gameobj.transform.position = position;
+            gameobj.transform.rotation = quaternion;
+        }
+        else
+        {
+            gameobj = GameObject.Instantiate(shotObj, position, quaternion);
+            gameobj.name = name;
+        }
+        return gameobj;
+    }
 
     public void GetObjAsync(string name, UnityAction<GameObject> callBack)
     {
@@ -68,6 +85,14 @@ public class PoolManager : BaseManager<PoolManager>
                 o.name = name;
                 callBack(o);
             });
+        }
+    }
+    public void CheckExist(string name, UnityAction<GameObject> callBack)
+    {
+
+        if(pool.ContainsKey(name) && pool[name].poolList.Count > 0)
+        {
+            callBack(pool[name].GetObj());
         }
     }
 
