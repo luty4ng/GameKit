@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 47e82ad890c68cf44bc6e6c3c721dfaf
+  m_SerializeEntries:
+  - m_GUID: b3c1768e6f2006b4d918a733dfccd584
+    m_Address: Assets/Arts/Addressable/Black 1.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 2100000, guid: b3c1768e6f2006b4d918a733dfccd584, type: 2}
+    m_TargetAsset: {fileID: 2100000, guid: b3c1768e6f2006b4d918a733dfccd584, type: 2}
+  - m_GUID: b65739be26b27cd44aeac3b8248f1830
+    m_Address: Assets/Icons/Sand 1.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 2100000, guid: b65739be26b27cd44aeac3b8248f1830, type: 2}
+    m_TargetAsset: {fileID: 2100000, guid: b65739be26b27cd44aeac3b8248f1830, type: 2}
+  - m_GUID: 4262688bad1559147963a8a529d1b892
+    m_Address: Assets/Addressable_Demo/Prefabs/Capsule.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: e72283ce6d20cc34d92f7b3023c080a5, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: e18cbd53c4ec56a4188b379f44dc8df0, type: 2}
+    - {fileID: 11400000, guid: 51301fe4ac80fdb40b94388736614eb4, type: 2}
