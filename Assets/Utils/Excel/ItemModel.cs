@@ -8,7 +8,7 @@ namespace Data
 {
     public class ItemModel : ScriptableObject
     {
-        public List<Item> dataArray;
+        public List<Item> pool;
         // FileStream stream = File.Open("filePath", FileMode.Open, FileAccess.Read, FileShare.Read);
     }
 

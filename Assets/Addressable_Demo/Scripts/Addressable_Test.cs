@@ -2,13 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
 public class Addressable_Test : MonoBehaviour
 {
+    public AssetReference mat;
     void Start()
     {
-        Addressables.LoadAssetAsync<Material>("Assets/Addressable_Demo/Prefabs/Capsule.prefab[Assets/Arts/Addressable/Black 1.mat]");
+        AsyncOperationHandle handle = Addressables.LoadAssetAsync<GameObject>("Assets/Addressable_Demo/Prefabs/Capsule.prefab");
+        handle.Completed += test;
+        // reference.
     }
 
+    void test(AsyncOperationHandle obj)
+    {
 
+    }   
 }

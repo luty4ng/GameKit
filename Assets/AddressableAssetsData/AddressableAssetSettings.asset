@@ -50,6 +50,24 @@ MonoBehaviour:
         m_Value: ServerData/[BuildTarget]
       - m_Id: 18ae0d539ad64f44998923e466a39c91
         m_Value: http://localhost/[BuildTarget]
+      - m_Id: ae08d607cfb65e948a3d8e5cc36abd4c
+        m_Value: C:/Users/Administrator/Desktop/JustUFrame/Assets
+    - m_InheritedParent: 
+      m_Id: 93a8a792dd4686f40bba86c6e160bbcf
+      m_ProfileName: MyProfile
+      m_Values:
+      - m_Id: 8821c1204f594824ca000333b2551921
+        m_Value: '[UnityEditor.EditorUserBuildSettings.activeBuildTarget]'
+      - m_Id: a181246cf7cebb34c8f4e05d7f7cb38a
+        m_Value: '[UnityEngine.AddressableAssets.Addressables.BuildPath]/[BuildTarget]'
+      - m_Id: a10eb3300f585fb4d97218d851fc1877
+        m_Value: '{UnityEngine.AddressableAssets.Addressables.RuntimePath}/[BuildTarget]'
+      - m_Id: 09a0ef21e008a074a97cba61d85c9566
+        m_Value: ServerData/[BuildTarget]
+      - m_Id: 18ae0d539ad64f44998923e466a39c91
+        m_Value: http://localhost/[BuildTarget]
+      - m_Id: ae08d607cfb65e948a3d8e5cc36abd4c
+        m_Value: C:/Users/Administrator/Desktop/JustUFrame/Assets
     m_ProfileEntryNames:
     - m_Id: 8821c1204f594824ca000333b2551921
       m_Name: BuildTarget
@@ -66,10 +84,16 @@ MonoBehaviour:
     - m_Id: 18ae0d539ad64f44998923e466a39c91
       m_Name: RemoteLoadPath
       m_InlineUsage: 0
+    - m_Id: ae08d607cfb65e948a3d8e5cc36abd4c
+      m_Name: AssetPath
+      m_InlineUsage: 0
     m_ProfileVersion: 1
   m_LabelTable:
     m_LabelNames:
     - default
+    - GameObject
+    - Material
+    - Sprite
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: d243ca61305441346b297908d5c9e65f, type: 2}
