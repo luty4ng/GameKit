@@ -14,9 +14,11 @@ namespace EditorTool
     {
         public string excelName;
         //Dictionary<字段名称, 字段类型>
-        public Dictionary<string, string> propertyNameTypeDic;
+        public Dictionary<string, string> propertyType;
+        //Dictionary<字段名称, 字段中文提示>
+        public Dictionary<string, string> propertyChinese;
         //List<行数据>，List<Dictionary<字段名称, 一行的每个单元格字段值>>
-        public List<Dictionary<string, string>> allItemValueRowList;
+        public List<Dictionary<string, string>> dataEachLine;
     }
 
     public class ExcelTool
@@ -249,16 +251,16 @@ namespace EditorTool
             //类名
             excelMediumData.excelName = excelReader.Name;
             //Dictionary<数据名称,数据类型>
-            excelMediumData.propertyNameTypeDic = new Dictionary<string, string>();
+            excelMediumData.propertyType = new Dictionary<string, string>();
             //转换存储格式
             for (int i = 0; i < propertyCount; i++)
             {
                 //数据名重复，数据无效
-                if (excelMediumData.propertyNameTypeDic.ContainsKey(propertyNameTypes[i].Key))
+                if (excelMediumData.propertyType.ContainsKey(propertyNameTypes[i].Key))
                     return null;
-                excelMediumData.propertyNameTypeDic.Add(propertyNameTypes[i].Key, propertyNameTypes[i].Value);
+                excelMediumData.propertyType.Add(propertyNameTypes[i].Key, propertyNameTypes[i].Value);
             }
-            excelMediumData.allItemValueRowList = allItemValueRowList;
+            excelMediumData.dataEachLine = allItemValueRowList;
             return excelMediumData;
         }
 
@@ -308,9 +310,10 @@ namespace EditorTool
                 {
                     //反射获取方法
                     MethodInfo methodInfo = type.GetMethod("CreateAsset");
+                    
                     if (methodInfo != null)
                     {
-                        methodInfo.Invoke(null, new object[] { excelMediumData.allItemValueRowList, ExcelConfig.excelPoolSOPath });
+                        methodInfo.Invoke(null, new object[] { excelMediumData.dataEachLine, ExcelConfig.excelPoolSOPath });
                         Debug.Log("<color=green>Auto Create Excel Asset Success : </color>" + excelMediumData.excelName);
                         return;
                     }

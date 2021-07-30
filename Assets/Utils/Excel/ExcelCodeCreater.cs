@@ -22,11 +22,11 @@ namespace EditorTool
             if (string.IsNullOrEmpty(excelName))
                 return null;
             //Dictionary<字段名称, 字段类型>
-            Dictionary<string, string> propertyNameTypeDic = excelMediumData.propertyNameTypeDic;
+            Dictionary<string, string> propertyNameTypeDic = excelMediumData.propertyType;
             if (propertyNameTypeDic == null || propertyNameTypeDic.Count == 0)
                 return null;
             //List<一行数据>，List<Dictionary<字段名称, 一行的每个单元格字段值>>
-            List<Dictionary<string, string>> allItemValueRowList = excelMediumData.allItemValueRowList;
+            List<Dictionary<string, string>> allItemValueRowList = excelMediumData.dataEachLine;
             if (allItemValueRowList == null || allItemValueRowList.Count == 0)
                 return null;
             //行数据类名
@@ -126,11 +126,11 @@ namespace EditorTool
             if (string.IsNullOrEmpty(excelName))
                 return null;
     
-            Dictionary<string, string> propertyNameTypeDic = excelMediumData.propertyNameTypeDic;
+            Dictionary<string, string> propertyNameTypeDic = excelMediumData.propertyType;
             if (propertyNameTypeDic == null || propertyNameTypeDic.Count == 0)
                 return null;
     
-            List<Dictionary<string, string>> allItemValueRowList = excelMediumData.allItemValueRowList;
+            List<Dictionary<string, string>> allItemValueRowList = excelMediumData.dataEachLine;
             if (allItemValueRowList == null || allItemValueRowList.Count == 0)
                 return null;
     
@@ -171,7 +171,6 @@ namespace EditorTool
             classSource.Append("\t\tUnityEditor.AssetDatabase.Refresh();\n");
             classSource.Append("\t\treturn true;\n");
             classSource.Append("\t}\n");
-            //
             classSource.Append("}\n");
             classSource.Append("#endif\n");
             return classSource;

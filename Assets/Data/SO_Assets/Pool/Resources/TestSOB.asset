@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb35a3c12af906b48b897190a7931a5f, type: 3}
+  m_Name: TestSOB
+  m_EditorClassIdentifier: 
+  aaaa:
+  - {fileID: 11400000, guid: 6eee9c722ba03e448a43028601df51e7, type: 2}
+  - {fileID: 11400000, guid: bf472349091c97c44983b6cf833db11b, type: 2}
+  - {fileID: 11400000, guid: 5b63029aa4e341746890a87dd41452c2, type: 2}
+  - {fileID: 11400000, guid: 6b203ba5368ff0d4daafd5bd3554c6b2, type: 2}
+  - {fileID: 11400000, guid: 6b203ba5368ff0d4daafd5bd3554c6b2, type: 2}

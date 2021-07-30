@@ -34,13 +34,13 @@ public class DemoAssetAssignment
 			items[i].showName = allItemValueRowList[i]["showName"];
 			items[i].desc = allItemValueRowList[i]["desc"];
 			items[i].maxOverlap = Convert.ToInt32(allItemValueRowList[i]["maxOverlap"]);
+			// items[i].itemType = (TheType)(Convert.ToInt32(allItemValueRowList[i]["itemType"]));
 		}
 		DemoExcelData excelDataAsset = ScriptableObject.CreateInstance<DemoExcelData>();
 		excelDataAsset.items = items;
 		if (!Directory.Exists(excelAssetPath))
 			Directory.CreateDirectory(excelAssetPath);
 		string pullPath = excelAssetPath + "/" + typeof(DemoExcelData).Name + ".asset";
-		ExcelParser.AutoParse("1".GetType(), 1.GetType());
 		UnityEditor.AssetDatabase.DeleteAsset(pullPath);
 		UnityEditor.AssetDatabase.CreateAsset(excelDataAsset, pullPath);
 		UnityEditor.AssetDatabase.Refresh();
