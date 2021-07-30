@@ -16,7 +16,7 @@ public class ItemPool : ScriptableObject
         ItemData template = GetAsset(name);
         SetValue(ref itemData, ref template);
 
-        itemData.instanceName = itemData.itemName + itemData.GetInstanceID().ToString();
+        itemData.instanceName = itemData.idName + itemData.GetInstanceID().ToString();
         itemData.name = itemData.instanceName;
         itemData.currentOverlap = 1;
         return itemData;
@@ -24,7 +24,7 @@ public class ItemPool : ScriptableObject
 
     private void SetValue(ref ItemData itemData, ref ItemData template)
     {
-        itemData.itemName = template.itemName;
+        itemData.idName = template.idName;
         itemData.showName = template.showName;
         itemData.type = template.type;
         itemData.itemDesc = template.itemDesc;
@@ -53,7 +53,7 @@ public class ItemPool : ScriptableObject
     {
         foreach (var item in pool)
         {
-            if (item.itemName == name)
+            if (item.idName == name)
             {
                 return item;
             }

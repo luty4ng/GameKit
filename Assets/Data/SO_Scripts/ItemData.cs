@@ -25,7 +25,7 @@ public enum ShotType
 
 
 [CreateAssetMenu(fileName = "ItemData", menuName = "Item", order = 1)]
-public class ItemData : SerializedScriptableObject
+public class ItemData : BaseData
 {
     [HideInInspector]
     public static string[] ProduceType = new string[]
@@ -40,7 +40,6 @@ public class ItemData : SerializedScriptableObject
         "Bullet_Normal", "Bullet_Prism", "Bullet_Pulse", "Bullet_SABOT"};
 
     [Header("静态数据（需要配置）")]
-    [LabelText("物品名称（英文，唯一ID）")] public string itemName;
     [LabelText("物品名称（中文）")] public string showName;
     [LabelText("物品类型")] public ItemType type;
     [LabelText("物品描述"), TextArea] public string itemDesc;

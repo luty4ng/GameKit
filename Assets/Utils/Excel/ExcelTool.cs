@@ -313,7 +313,7 @@ namespace EditorTool
                     
                     if (methodInfo != null)
                     {
-                        methodInfo.Invoke(null, new object[] { excelMediumData.dataEachLine, ExcelConfig.excelPoolSOPath });
+                        methodInfo.Invoke(null, new object[] { excelMediumData.dataEachLine, ExcelConfig.excelPoolPath });
                         Debug.Log("<color=green>Auto Create Excel Asset Success : </color>" + excelMediumData.excelName);
                         return;
                     }

@@ -14,10 +14,10 @@ namespace EditorTool {
             ItemModel itemModel = ScriptableObject.CreateInstance<ItemModel>();
             itemModel.pool = new List<Item>(ExcelTool.CreateItemSOWithExcel(ExcelConfig.excelPath + "Item.xlsx"));
 
-            if(!Directory.Exists(ExcelConfig.excelPoolSOPath)) {
-                Directory.CreateDirectory(ExcelConfig.excelPoolSOPath);
+            if(!Directory.Exists(ExcelConfig.excelPoolPath)) {
+                Directory.CreateDirectory(ExcelConfig.excelPoolPath);
             }
-            string assetPath = string.Format("{0}{1}.asset", ExcelConfig.excelPoolSOPath, "ItemModel");
+            string assetPath = string.Format("{0}{1}.asset", ExcelConfig.excelPoolPath, "ItemModel");
 
             AssetDatabase.CreateAsset(itemModel, assetPath);
             AssetDatabase.SaveAssets();
@@ -48,12 +48,12 @@ namespace EditorTool {
             itemModel.pool = new List<Item>(ExcelTool.CreateItemSOWithExcel(ExcelConfig.excelPath + "BuildingData.xlsx"));
  
             //确保文件夹存在
-            if(!Directory.Exists(ExcelConfig.excelPoolSOPath)) {
-                Directory.CreateDirectory(ExcelConfig.excelPoolSOPath);
+            if(!Directory.Exists(ExcelConfig.excelPoolPath)) {
+                Directory.CreateDirectory(ExcelConfig.excelPoolPath);
             }
  
             //asset文件的路径 要以"Assets/..."开始，否则CreateAsset会报错
-            string assetPath = string.Format("{0}{1}.asset", ExcelConfig.excelPoolSOPath, "ItemModel");
+            string assetPath = string.Format("{0}{1}.asset", ExcelConfig.excelPoolPath, "ItemModel");
             //生成一个Asset文件
 
             AssetDatabase.CreateAsset(itemModel, assetPath);

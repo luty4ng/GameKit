@@ -11,9 +11,34 @@ namespace EditorTool
     public class ExcelCodeGenerator
     {    
         #region --- Create Code ---
-    
+        public static string CreateCodeForAsset(ExcelMediumData excelMediumData)
+        {
+            if (excelMediumData == null)
+                return null;
+            string assetName = excelMediumData.excelName;
+            if (string.IsNullOrEmpty(assetName))
+                return null;
+            Dictionary<string, string> dataDic = excelMediumData.propertyType;
+            if (dataDic == null || dataDic.Count == 0)
+                return null;
+
+            assetName = assetName + "Data";
+            StringBuilder classSource = new StringBuilder();
+            classSource.Append("/* This is an auto-generated meta script, if you want to edit it, please dont use the ScriptToExcel feature, which might cause unhandled error.*/\n");
+            classSource.Append("\n");
+            classSource.Append("using UnityEngine;\n");
+            classSource.Append("using System.Collections.Generic;\n");
+            classSource.Append("using System.Linq;\n");
+            classSource.Append("using System.IO;\n");
+            classSource.Append("using UnityEditor;\n");
+            classSource.Append("using Sirenix.OdinInspector;\n");
+            classSource.Append("\n");
+            classSource.Append(CreateExcelRowItemClass(assetName, dataDic));
+            classSource.Append("\n");
+            return classSource.ToString();
+        }
         //创建代码，生成数据C#类
-        public static string CreateCodeStrByExcelData(ExcelMediumData excelMediumData)
+        public static string CreateCodeForPool(ExcelMediumData excelMediumData)
         {
             if (excelMediumData == null)
                 return null;
@@ -22,8 +47,8 @@ namespace EditorTool
             if (string.IsNullOrEmpty(excelName))
                 return null;
             //Dictionary<字段名称, 字段类型>
-            Dictionary<string, string> propertyNameTypeDic = excelMediumData.propertyType;
-            if (propertyNameTypeDic == null || propertyNameTypeDic.Count == 0)
+            Dictionary<string, string> dataDic = excelMediumData.propertyType;
+            if (dataDic == null || dataDic.Count == 0)
                 return null;
             //List<一行数据>，List<Dictionary<字段名称, 一行的每个单元格字段值>>
             List<Dictionary<string, string>> allItemValueRowList = excelMediumData.dataEachLine;
@@ -33,21 +58,15 @@ namespace EditorTool
             string itemClassName = excelName + "ExcelItem";
             //整体数据类名
             string dataClassName = excelName + "ExcelData";
-    
-            //生成类
             StringBuilder classSource = new StringBuilder();
             classSource.Append("/* This is an auto-generated meta script, if you want to edit it, please dont use the ScriptToExcel feature, which might cause unhandled error.*/\n");
             classSource.Append("\n");
-            //添加引用
             classSource.Append("using UnityEngine;\n");
             classSource.Append("using System.Collections.Generic;\n");
             classSource.Append("using System.Linq;\n");
             classSource.Append("using System.IO;\n");
             classSource.Append("using UnityEditor;\n");
             classSource.Append("using Sirenix.OdinInspector;\n");
-            classSource.Append("\n");
-            //生成行数据类，记录每行数据
-            classSource.Append(CreateExcelRowItemClass(itemClassName, propertyNameTypeDic));
             classSource.Append("\n");
             //生成整体数据类，记录整个Excel的所有行数据
             classSource.Append(CreateExcelDataClass(dataClassName, itemClassName));
@@ -61,7 +80,7 @@ namespace EditorTool
         //----------
     
         //生成行数据类
-        private static StringBuilder CreateExcelRowItemClass(string itemClassName, Dictionary<string, string> propertyNameTypeDic)
+        private static StringBuilder CreateExcelRowItemClass(string itemClassName, Dictionary<string, string> dataDic)
         {
             //生成Excel行数据类
             StringBuilder classSource = new StringBuilder();
@@ -69,7 +88,7 @@ namespace EditorTool
             classSource.Append("public class " + itemClassName + " : ExcelItemBase\n");
             classSource.Append("{\n");
             //声明所有字段
-            foreach (var item in propertyNameTypeDic)
+            foreach (var item in dataDic)
             {
                 classSource.Append(CreateCodeProperty(item.Key, item.Value));
             }
@@ -126,8 +145,8 @@ namespace EditorTool
             if (string.IsNullOrEmpty(excelName))
                 return null;
     
-            Dictionary<string, string> propertyNameTypeDic = excelMediumData.propertyType;
-            if (propertyNameTypeDic == null || propertyNameTypeDic.Count == 0)
+            Dictionary<string, string> dataDic = excelMediumData.propertyType;
+            if (dataDic == null || dataDic.Count == 0)
                 return null;
     
             List<Dictionary<string, string>> allItemValueRowList = excelMediumData.dataEachLine;
@@ -153,11 +172,11 @@ namespace EditorTool
             classSource.Append("\t\tfor (int i = 0; i < items.Length; i++)\n");
             classSource.Append("\t\t{\n");
             classSource.Append("\t\t\titems[i] = new " + itemClassName + "();\n");
-            foreach (var item in propertyNameTypeDic)
+            foreach (var item in dataDic)
             {
                 classSource.Append("\t\t\titems[i]." + item.Key + " = ");
     
-                classSource.Append(AssignmentCodeProperty("allItemValueRowList[i][\"" + item.Key + "\"]", propertyNameTypeDic[item.Key]));
+                classSource.Append(AssignmentCodeProperty("allItemValueRowList[i][\"" + item.Key + "\"]", dataDic[item.Key]));
                 classSource.Append(";\n");
             }
             classSource.Append("\t\t}\n");
