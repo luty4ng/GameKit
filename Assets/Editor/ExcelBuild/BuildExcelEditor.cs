@@ -136,7 +136,7 @@ public class BuildExcelWindow : EditorWindow
         if (index >= 0 && index < filePathList.Count)
         {
             string fullPath = filePathList[index];
-            ExcelTool.CreateAsset(fullPath);
+            ExcelTool.CreateCode(fullPath);
         }
         else
         {
