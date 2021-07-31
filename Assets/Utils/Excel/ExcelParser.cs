@@ -5,45 +5,40 @@ using Sirenix.OdinInspector;
 using System.Linq;
 public class ExcelParser
 {
-    public static List<T> ParseList<T>(string str, string type)
+    public static List<T> ParseList<T>(string data)
     {
         List<T> resList = new List<T>();
-        string[] strArray = str.Trim().Split(',');
+        string[] strArray = data.Trim().Split(',');
         foreach (var each in strArray)
         {
-            resList.Add(ParseValueType<T>(type, each));
+            resList.Add(ParseValueType<T>(each));
         }
         return resList;
     }
 
-    public static Dictionary<T0, T1> ParseDictionary<T0, T1>(string str, string typeA, string typeB)
+    public static Dictionary<T0, T1> ParseDictionary<T0, T1>(string data)
     {
         Dictionary<T0, T1> resDic = new Dictionary<T0, T1>();
-        string[] strArray = str.Trim().Split('/');
+        string[] strArray = data.Trim().Split('|');
         foreach (var each in strArray)
         {
             string keyStr = each.Split(',')[0];
             string valueStr = each.Split(',')[1];
-            T0 key = ParseValueType<T0>(keyStr, typeA);
-            T1 value = ParseValueType<T1>(valueStr, typeB);
+            T0 key = ParseValueType<T0>(keyStr);
+            T1 value = ParseValueType<T1>(valueStr);
             resDic.Add(key, value);
         }
         return resDic;
     }
 
-    public static T ParseEnum<T>(string str, string property)
+    public static T ParseEnum<T>(string data)
     {
-        return (T)System.Enum.Parse(typeof(T), property);
+        return (T)System.Enum.Parse(typeof(T), data);
     }
 
-    public static T ParseValueType<T>(string type, string value)
+    public static T ParseValueType<T>(string data)
     {
-        return (T)System.Convert.ChangeType(value, typeof(T));
-    }
-    public static bool IsValueType(string type)
-    {
-        if (type.Split('|').Length > 1)
-            return true;
-        return false;
+        // Debug.Log(data);
+        return (T)System.Convert.ChangeType(data, typeof(T));
     }
 }

@@ -1,30 +1,43 @@
 
- 
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Text;
 using System.Linq;
 
-namespace EditorTool 
+namespace EditorTool
 {
     public class ExcelCodeGenerator
-    {    
+    {
         #region --- Create Code ---
-        public static string CreateCodeForAsset(ExcelMediumData excelMediumData)
+        public static Dictionary<string, List<string>> enumDic;
+        public static string dataName = "DefaultSO";
+        public static string poolName = "DefaultPool";
+        private static void Initialize()
         {
-            if (excelMediumData == null)
+            dataName = "DefaultSO";
+            poolName = "DefaultPool";
+            enumDic = new Dictionary<string, List<string>>();
+        }
+        // 生成数据代码
+        public static string CreateAssetCode(ExcelMediumData excelData)
+        {
+            Initialize();
+            if (excelData == null)
                 return null;
-            string assetName = excelMediumData.excelName;
-            if (string.IsNullOrEmpty(assetName))
+            dataName = excelData.excelName + "Data";
+            poolName = excelData.excelName + "Pool";
+            if (string.IsNullOrEmpty(dataName))
                 return null;
-            Dictionary<string, string> dataDic = excelMediumData.propertyType;
-            if (dataDic == null || dataDic.Count == 0)
+            Dictionary<string, string> propertyType = excelData.propertyType;
+            if (propertyType == null || propertyType.Count == 0)
+                return null;
+            if (excelData.dataEachLine == null || excelData.dataEachLine.Count == 0)
                 return null;
 
-            assetName = assetName + "Data";
             StringBuilder classSource = new StringBuilder();
-            classSource.Append("/* This is an auto-generated meta script, if you want to edit it, please dont use the ScriptToExcel feature, which might cause unhandled error.*/\n");
+            classSource.Append("/* This is an auto-generated meta script. */\n/* if you want to edit it, please dont use the ScriptToExcel feature, which might cause unhandled error.*/\n");
             classSource.Append("\n");
             classSource.Append("using UnityEngine;\n");
             classSource.Append("using System.Collections.Generic;\n");
@@ -33,33 +46,28 @@ namespace EditorTool
             classSource.Append("using UnityEditor;\n");
             classSource.Append("using Sirenix.OdinInspector;\n");
             classSource.Append("\n");
-            classSource.Append(CreateExcelRowItemClass(assetName, dataDic));
+            classSource.Append(CreateDataClass(dataName, propertyType));
             classSource.Append("\n");
             return classSource.ToString();
         }
-        //创建代码，生成数据C#类
-        public static string CreateCodeForPool(ExcelMediumData excelMediumData)
+
+        // 生成数据池代码
+        public static string CreatePoolCode(ExcelMediumData excelData)
         {
-            if (excelMediumData == null)
+            Initialize();
+            if (excelData == null)
                 return null;
-            //Excel名字
-            string excelName = excelMediumData.excelName;
-            if (string.IsNullOrEmpty(excelName))
+            dataName = excelData.excelName + "Data";
+            poolName = excelData.excelName + "Pool";
+            if (string.IsNullOrEmpty(dataName))
                 return null;
-            //Dictionary<字段名称, 字段类型>
-            Dictionary<string, string> dataDic = excelMediumData.propertyType;
-            if (dataDic == null || dataDic.Count == 0)
+            Dictionary<string, string> propertyType = excelData.propertyType;
+            if (propertyType == null || propertyType.Count == 0)
                 return null;
-            //List<一行数据>，List<Dictionary<字段名称, 一行的每个单元格字段值>>
-            List<Dictionary<string, string>> allItemValueRowList = excelMediumData.dataEachLine;
-            if (allItemValueRowList == null || allItemValueRowList.Count == 0)
+            if (excelData.dataEachLine == null || excelData.dataEachLine.Count == 0)
                 return null;
-            //行数据类名
-            string itemClassName = excelName + "ExcelItem";
-            //整体数据类名
-            string dataClassName = excelName + "ExcelData";
             StringBuilder classSource = new StringBuilder();
-            classSource.Append("/* This is an auto-generated meta script, if you want to edit it, please dont use the ScriptToExcel feature, which might cause unhandled error.*/\n");
+            classSource.Append("/* This is an auto-generated meta script. */\n/* if you want to edit it, please dont use the ScriptToExcel feature, which might cause unhandled error.*/\n");
             classSource.Append("\n");
             classSource.Append("using UnityEngine;\n");
             classSource.Append("using System.Collections.Generic;\n");
@@ -68,123 +76,82 @@ namespace EditorTool
             classSource.Append("using UnityEditor;\n");
             classSource.Append("using Sirenix.OdinInspector;\n");
             classSource.Append("\n");
-            //生成整体数据类，记录整个Excel的所有行数据
-            classSource.Append(CreateExcelDataClass(dataClassName, itemClassName));
+            classSource.Append(GeneratePoolClass(poolName, dataName));
             classSource.Append("\n");
-            //生成Asset操作类，用于自动创建Excel对应的Asset文件并赋值
-            classSource.Append(CreateExcelAssetClass(excelMediumData));
+            classSource.Append(GenerateAssetCreator(excelData));
             classSource.Append("\n");
             return classSource.ToString();
         }
-    
-        //----------
-    
-        //生成行数据类
-        private static StringBuilder CreateExcelRowItemClass(string itemClassName, Dictionary<string, string> dataDic)
+
+        //数据赋值代码
+        private static StringBuilder CreateDataClass(string dataName, Dictionary<string, string> propertyType)
         {
-            //生成Excel行数据类
             StringBuilder classSource = new StringBuilder();
-            classSource.Append("[Serializable]\n");
-            classSource.Append("public class " + itemClassName + " : ExcelItemBase\n");
+            classSource.Append("[System.Serializable]\n");
+            classSource.Append("public class " + dataName + " : BaseData\n");
             classSource.Append("{\n");
-            //声明所有字段
-            foreach (var item in dataDic)
+            foreach (var item in propertyType)
             {
                 classSource.Append(CreateCodeProperty(item.Key, item.Value));
             }
             classSource.Append("}\n");
             return classSource;
         }
-    
-        //声明行数据类字段
-        private static string CreateCodeProperty(string name, string type)
-        {
-            if (string.IsNullOrEmpty(name))
-                return null;
-            if (name == "id")
-                return null;
-    
-            //判断字段类型
-            if (type == "int" || type == "Int" || type == "INT")
-                type = "int";
-            else if (type == "float" || type == "Float" || type == "FLOAT")
-                type = "float";
-            else if (type == "bool" || type == "Bool" || type == "BOOL")
-                type = "bool";
-            else if (type.StartsWith("enum") || type.StartsWith("Enum") || type.StartsWith("ENUM"))
-                type = type.Split('|').LastOrDefault();
-            else
-                type = "string";
-            //声明
-            string propertyStr = "\tpublic " + type + " " + name + ";\n";
-            return propertyStr;
-        }
-    
-        //----------
-    
-        //生成数据类
-        private static StringBuilder CreateExcelDataClass(string dataClassName, string itemClassName)
+
+        //数据池代码
+        private static StringBuilder GeneratePoolClass(string poolName, string dataName)
         {
             StringBuilder classSource = new StringBuilder();
-            classSource.Append("[CreateAssetMenu(fileName = \"" + dataClassName + "\", menuName = \"Excel2SO/Create " + dataClassName + "\", order = 1)]\n");
-            classSource.Append("public class " + dataClassName + " : ExcelDataBase<" + itemClassName + ">\n");
+            classSource.Append("[CreateAssetMenu(fileName = \"" + poolName + "\", menuName = \"Excel2SO/Create " + poolName + "\", order = 1)]\n");
+            classSource.Append("public class " + poolName + " : BasePool<" + dataName + ">\n");
             classSource.Append("{\n");
             classSource.Append("}\n");
             return classSource;
         }
-    
-        //----------
-    
-        //生成Asset操作类
-        private static StringBuilder CreateExcelAssetClass(ExcelMediumData excelMediumData)
+
+        //Asset生成代码，通过反射调用
+        private static StringBuilder GenerateAssetCreator(ExcelMediumData excelData)
         {
-            if (excelMediumData == null)
+            if (excelData == null)
                 return null;
-    
-            string excelName = excelMediumData.excelName;
-            if (string.IsNullOrEmpty(excelName))
+            if (string.IsNullOrEmpty(dataName))
                 return null;
-    
-            Dictionary<string, string> dataDic = excelMediumData.propertyType;
-            if (dataDic == null || dataDic.Count == 0)
+            Dictionary<string, string> propertyType = excelData.propertyType;
+            if (propertyType == null || propertyType.Count == 0)
                 return null;
-    
-            List<Dictionary<string, string>> allItemValueRowList = excelMediumData.dataEachLine;
+
+            List<Dictionary<string, string>> allItemValueRowList = excelData.dataEachLine;
             if (allItemValueRowList == null || allItemValueRowList.Count == 0)
                 return null;
-    
-            string itemClassName = excelName + "ExcelItem";
-            string dataClassName = excelName + "ExcelData";
-    
+
             StringBuilder classSource = new StringBuilder();
             classSource.Append("#if UNITY_EDITOR\n");
             //类名
-            classSource.Append("public class " + excelName + "AssetAssignment\n");
+            classSource.Append("public class " + dataName + "AssetAssignment\n");
             classSource.Append("{\n");
             //方法名
-            classSource.Append("\tpublic static bool CreateAsset(List<Dictionary<string, string>> allItemValueRowList, string excelAssetPath)\n");
+            classSource.Append("\tpublic static bool CreateAsset(List<Dictionary<string, string>> dataList, string excelAssetPath)\n");
             //方法体
             classSource.Append("\t{\n");
-            classSource.Append("\t\tif (allItemValueRowList == null || allItemValueRowList.Count == 0)\n");
+            classSource.Append("\t\tif (dataList == null || dataList.Count == 0)\n");
             classSource.Append("\t\t\treturn false;\n");
-            classSource.Append("\t\tint rowCount = allItemValueRowList.Count;\n");
-            classSource.Append("\t\t" + itemClassName + "[] items = new " + itemClassName + "[rowCount];\n");
+            classSource.Append("\t\tint rowCount = dataList.Count;\n");
+            classSource.Append("\t\t" + dataName + "[] items = new " + dataName + "[rowCount];\n");
             classSource.Append("\t\tfor (int i = 0; i < items.Length; i++)\n");
             classSource.Append("\t\t{\n");
-            classSource.Append("\t\t\titems[i] = new " + itemClassName + "();\n");
-            foreach (var item in dataDic)
+            classSource.Append("\t\t\titems[i] = new " + dataName + "();\n");
+            foreach (var item in propertyType)
             {
                 classSource.Append("\t\t\titems[i]." + item.Key + " = ");
-    
-                classSource.Append(AssignmentCodeProperty("allItemValueRowList[i][\"" + item.Key + "\"]", dataDic[item.Key]));
+                classSource.Append(AssignmentValue("dataList[i][\"" + item.Key + "\"]", propertyType[item.Key]));
                 classSource.Append(";\n");
             }
             classSource.Append("\t\t}\n");
-            classSource.Append("\t\t" + dataClassName + " excelDataAsset = ScriptableObject.CreateInstance<" + dataClassName + ">();\n");
-            classSource.Append("\t\texcelDataAsset.items = items;\n");
+            classSource.Append("\t\t" + poolName + " excelDataAsset = ScriptableObject.CreateInstance<" + poolName + ">();\n");
+            classSource.Append("\t\texcelDataAsset.pool = new List<" + dataName + ">(items);\n");
             classSource.Append("\t\tif (!Directory.Exists(excelAssetPath))\n");
             classSource.Append("\t\t\tDirectory.CreateDirectory(excelAssetPath);\n");
-            classSource.Append("\t\tstring pullPath = excelAssetPath + \"/\" + typeof(" + dataClassName + ").Name + \".asset\";\n");
+            classSource.Append("\t\tstring pullPath = excelAssetPath + \"/\" + typeof(" + poolName + ").Name + \".asset\";\n");
             classSource.Append("\t\tUnityEditor.AssetDatabase.DeleteAsset(pullPath);\n");
             classSource.Append("\t\tUnityEditor.AssetDatabase.CreateAsset(excelDataAsset, pullPath);\n");
             classSource.Append("\t\tUnityEditor.AssetDatabase.Refresh();\n");
@@ -194,33 +161,93 @@ namespace EditorTool
             classSource.Append("#endif\n");
             return classSource;
         }
-    
-        //声明Asset操作类字段
-        private static string AssignmentCodeProperty(string stringValue, string type)
+
+        //判断类型转换方法，属于反射调用代码块
+        private static string AssignmentValue(string stringValue, string type)
         {
-            //判断类型
-            if (type == "int" || type == "Int" || type == "INT")
+            string resValue = stringValue;
+            string generic = "";
+            if (type.Split('|').Length == 1)
             {
-                return "Convert.ToInt32(" + stringValue + ")";
-            }
-            else if (type == "float" || type == "Float" || type == "FLOAT")
-            {
-                return "Convert.ToSingle(" + stringValue + ")";
-            }
-            else if (type == "bool" || type == "Bool" || type == "BOOL")
-            {
-                return "Convert.ToBoolean(" + stringValue + ")";
+                generic = "<" + CheckValueType(type).Trim() + ">";
+                resValue = "ExcelParser.ParseValueType" + generic + "(" + stringValue + ")";
             }
             else if (type.StartsWith("enum") || type.StartsWith("Enum") || type.StartsWith("ENUM"))
             {
-                return "(" + type.Split('|').LastOrDefault() + ")(Convert.ToInt32(" + stringValue + "))";
+                generic = "<" + type.Split('|').LastOrDefault().Trim() + ">";
+                resValue = "ExcelParser.ParseEnum" + generic + "(" + stringValue + ")";
+            }
+            else if (type.StartsWith("list") || type.StartsWith("List") || type.StartsWith("LIST"))
+            {
+                generic = "<" + type.Split('|').LastOrDefault().Trim() + ">";
+                resValue = "ExcelParser.ParseList" + generic + "(" + stringValue + ")";
+            }
+            else if (type.StartsWith("dictionary") || type.StartsWith("Dictionary") || type.StartsWith("DICTIONARY"))
+            {
+                string pair = type.Split('|').LastOrDefault().Trim();
+                string keyStr = "string", valueStr = "string";
+                keyStr = CheckValueType(pair.Split(',')[0].Trim());
+                valueStr = CheckValueType(pair.Split(',')[1].Trim());
+                generic = "<" + keyStr + ", " + valueStr + ">";
+                resValue = "ExcelParser.ParseDictionary" + generic + "(" + stringValue + ")";
+            }
+            return resValue;
+        }
+
+        #endregion
+
+        //判断声明类型
+        private static string CreateCodeProperty(string name, string type)
+        {
+            if (string.IsNullOrEmpty(name))
+                return null;
+            if (name == "idName")
+                return null;
+            type = type.Trim();
+            string generic = "";
+            if (type == "int" || type == "Int" || type == "INT")
+                type = "int";
+            else if (type == "float" || type == "Float" || type == "FLOAT")
+                type = "float";
+            else if (type == "bool" || type == "Bool" || type == "BOOL")
+                type = "bool";
+            else if (type.StartsWith("enum") || type.StartsWith("Enum") || type.StartsWith("ENUM"))
+            {
+                type = type.Split('|').LastOrDefault().Trim();
+            }
+            else if (type.StartsWith("list") || type.StartsWith("List") || type.StartsWith("LIST"))
+            {
+                generic = "<" + type.Split('|').LastOrDefault().Trim() + ">";
+                type = "List";
+            }
+            else if (type.StartsWith("dictionary") || type.StartsWith("Dictionary") || type.StartsWith("DICTIONARY"))
+            {
+                string pair = type.Split('|').LastOrDefault().Trim();
+                string keyStr = "string", valueStr = "string";
+                keyStr = CheckValueType(pair.Split(',')[0].Trim());
+                valueStr = CheckValueType(pair.Split(',')[1].Trim());
+                generic = "<" + keyStr + ", " + valueStr + ">";
+                type = "Dictionary";
             }
             else
-                return stringValue;
+                type = "string";
+
+            string propertyStr = "\tpublic " + type + generic + " " + name + ";\n";
+            return propertyStr;
         }
-    
-        #endregion
-    
+
+        // 用于泛型类型判断
+        public static string CheckValueType(string typeName)
+        {
+            string type = "string";
+            if (typeName == "int" || typeName == "Int" || typeName == "INT")
+                type = "int";
+            else if (typeName == "float" || typeName == "Float" || typeName == "FLOAT")
+                type = "float";
+            else if (typeName == "bool" || typeName == "Bool" || typeName == "BOOL")
+                type = "bool";
+            return type;
+        }
     }
 }
 

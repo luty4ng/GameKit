@@ -136,11 +136,11 @@ public class BuildExcelWindow : EditorWindow
         if (index >= 0 && index < filePathList.Count)
         {
             string fullPath = filePathList[index];
-            ExcelTool.ReadOneExcelToCode(fullPath);
+            ExcelTool.CreateAsset(fullPath);
         }
         else
         {
-            ExcelTool.ReadAllExcelToCode();
+            ExcelTool.CreateCodeAll();
         }
     }
  
@@ -150,11 +150,11 @@ public class BuildExcelWindow : EditorWindow
         if (index >= 0 && index < filePathList.Count)
         {
             string fullPath = filePathList[index];
-            ExcelTool.CreateOneExcelAsset(fullPath);
+            ExcelTool.CreateAsset(fullPath);
         }
         else
         {
-            ExcelTool.CreateAllExcelAsset();
+            ExcelTool.CreateAssetAll();
         }
     }
 }

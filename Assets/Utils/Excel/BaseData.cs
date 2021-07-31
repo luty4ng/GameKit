@@ -1,7 +1,8 @@
 using UnityEngine;
 using Sirenix.OdinInspector;
 
-public class BaseData : SerializedScriptableObject
+[System.Serializable]
+public class BaseData
 {
-    [LabelText("名称（唯一ID）")] public string idName;
+    public string idName;
 }

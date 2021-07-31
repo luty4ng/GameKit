@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7b3ca5e5a684ab4a93727010e8c1189, type: 3}
+  m_Name: DemoPool
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  pool:
+  - idName: 
+    id: 1
+    showName: Alice
+    desc: A
+    maxOverlap: 21
+    itemType: 0
+    itemList:
+    - JOJO
+    - BABA
+  - idName: 
+    id: 2
+    showName: Bob
+    desc: B
+    maxOverlap: 24
+    itemType: 0
+    itemList:
+    - BABA
+    - KEKE
+  - idName: 
+    id: 3
+    showName: Carson
+    desc: A
+    maxOverlap: 27
+    itemType: 0
+    itemList:
+    - KEKE
+    - MOMO
+  - idName: 
+    id: 4
+    showName: David
+    desc: B
+    maxOverlap: 30
+    itemType: 1
+    itemList:
+    - MOMO
+    - HEHE
+  - idName: 
+    id: 5
+    showName: Ella
+    desc: A
+    maxOverlap: 33
+    itemType: 1
+    itemList:
+    - HEHE

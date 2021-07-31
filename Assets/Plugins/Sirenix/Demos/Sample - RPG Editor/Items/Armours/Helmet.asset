@@ -3,8 +3,9 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -19,6 +20,7 @@ MonoBehaviour:
   Requirements:
     stats: []
   Prefab: {fileID: 0}
+  aaaa: 0
   ItemStackSize: 1
   ItemRarity: 0
   Durability: 0.36
@@ -28,5 +30,5 @@ MonoBehaviour:
       Value: 0
     - Type: 7
       Value: 0
-  BaseArmour: 0.19
+  BaseArmor: 0
   MovementSpeed: 1.07
