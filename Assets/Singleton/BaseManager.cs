@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class BaseManager<T> where T : new()
 {
-    private static T instance;
-    public static T GetInstance()
+    private static T Instance;
+    public static T instance
     {
-        if(instance == null)
-            instance = new T();
-        return instance;
+        get
+        {
+            if (Instance == null)
+                Instance = new T();
+            return Instance;
+        }
     }
+
 }
 

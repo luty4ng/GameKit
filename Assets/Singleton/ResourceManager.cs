@@ -27,7 +27,7 @@ public class ResourceManager : BaseManager<ResourceManager>
 
     public void LoadAsync<T>(string name, UnityAction<T> callback) where T : Object
     {
-        MonoManager.GetInstance().StartCoroutine(LoadAsyncProcess<T>(name, callback));
+        MonoManager.instance.StartCoroutine(LoadAsyncProcess<T>(name, callback));
     }
 
     private IEnumerator LoadAsyncProcess<T>(string name, UnityAction<T> callback) where T : Object

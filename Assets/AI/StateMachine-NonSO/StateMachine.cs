@@ -63,7 +63,7 @@ namespace FSM.NonSO
                 else
                 {
                     isExit = true;
-                    MonoManager.GetInstance().StartCoroutine(PerformTransition(transition.ExitTime, transition.To));
+                    MonoManager.instance.StartCoroutine(PerformTransition(transition.ExitTime, transition.To));
                 }
             }
             currentState?.Update();

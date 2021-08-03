@@ -28,7 +28,7 @@ public class JsonManager : BaseManager<JsonManager>
         if (!Directory.Exists(Application.streamingAssetsPath + "/"))
             Directory.CreateDirectory(Application.streamingAssetsPath + "/");
 
-        MonoManager.GetInstance().AddUpdateListener(JsonUpdate);
+        MonoManager.instance.AddUpdateListener(JsonUpdate);
     }
 
     /// <summary>

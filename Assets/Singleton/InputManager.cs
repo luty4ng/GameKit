@@ -9,7 +9,7 @@ public class InputManager : BaseManager<InputManager>
     
     public InputManager()
     {
-        MonoManager.GetInstance().AddUpdateListener(MyUpdate);
+        MonoManager.instance.AddUpdateListener(MyUpdate);
     }
 
     public void SetActive(bool boolean)
@@ -20,11 +20,11 @@ public class InputManager : BaseManager<InputManager>
     {
         if(Input.GetKeyDown(key))
         {
-            EventCenter.GetInstance().EventTrigger("KeyDown", key);
+            EventCenter.instance.EventTrigger("KeyDown", key);
         }
         if(Input.GetKeyUp(key))
         {
-            EventCenter.GetInstance().EventTrigger("KeyUp", key);
+            EventCenter.instance.EventTrigger("KeyUp", key);
         }
     }
 
@@ -32,30 +32,30 @@ public class InputManager : BaseManager<InputManager>
     {
         if(Input.GetKeyDown(key))
         {
-            EventCenter.GetInstance().EventTrigger("KeyDown", key);
+            EventCenter.instance.EventTrigger("KeyDown", key);
         }
         if(Input.GetKeyUp(key))
         {
-            EventCenter.GetInstance().EventTrigger("KeyUp", key);
+            EventCenter.instance.EventTrigger("KeyUp", key);
         }
     }
 
     private void CheckButton(String name, String target)
     {
         if(Input.GetButtonDown(name))
-            EventCenter.GetInstance().EventTrigger(target + "ButtonDown", name);
+            EventCenter.instance.EventTrigger(target + "ButtonDown", name);
         
         if(Input.GetButtonUp(name))
-            EventCenter.GetInstance().EventTrigger(target + "ButtonUp", name);
+            EventCenter.instance.EventTrigger(target + "ButtonUp", name);
     }
 
     private void CheckButton(String name)
     {
         if(Input.GetButtonDown(name))
-            EventCenter.GetInstance().EventTrigger("ButtonDown", name);
+            EventCenter.instance.EventTrigger("ButtonDown", name);
         
         if(Input.GetButtonUp(name))
-            EventCenter.GetInstance().EventTrigger("ButtonUp", name);
+            EventCenter.instance.EventTrigger("ButtonUp", name);
     }
 
     private void CheckAxis()
@@ -63,7 +63,7 @@ public class InputManager : BaseManager<InputManager>
         float Horizontal = Input.GetAxis("Horizontal");
         float Vertical = Input.GetAxis("Vertical");
         (float, float) Axis = (Horizontal, Vertical);
-        EventCenter.GetInstance().EventTrigger<(float, float)>("Axis", Axis);
+        EventCenter.instance.EventTrigger<(float, float)>("Axis", Axis);
     }
 
     private void CheckAxis(String target)
@@ -71,7 +71,7 @@ public class InputManager : BaseManager<InputManager>
         float Horizontal = Input.GetAxis("Horizontal");
         float Vertical = Input.GetAxis("Vertical");
         (float, float) Axis = (Horizontal, Vertical);
-        EventCenter.GetInstance().EventTrigger<(float, float)>(target + "Axis", Axis);
+        EventCenter.instance.EventTrigger<(float, float)>(target + "Axis", Axis);
     }
 
     private void CheckAxisRaw()
@@ -79,7 +79,7 @@ public class InputManager : BaseManager<InputManager>
         float Horizontal = Input.GetAxisRaw("Horizontal");
         float Vertical = Input.GetAxisRaw("Vertical");
         (float, float) AxisRaw = (Horizontal, Vertical);
-        EventCenter.GetInstance().EventTrigger<(float, float)>("AxisRaw", AxisRaw);
+        EventCenter.instance.EventTrigger<(float, float)>("AxisRaw", AxisRaw);
     }
 
     private void CheckAxisRaw(String target)
@@ -87,7 +87,7 @@ public class InputManager : BaseManager<InputManager>
         float Horizontal = Input.GetAxisRaw("Horizontal");
         float Vertical = Input.GetAxisRaw("Vertical");
         (float, float) AxisRaw = (Horizontal, Vertical);
-        EventCenter.GetInstance().EventTrigger<(float, float)>(target + "AxisRaw", AxisRaw);
+        EventCenter.instance.EventTrigger<(float, float)>(target + "AxisRaw", AxisRaw);
     }
 
     private void MyUpdate()

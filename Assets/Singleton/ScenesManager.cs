@@ -19,7 +19,7 @@ public class ScenesManager : BaseManager<ScenesManager>
 
     public void LoadSceneAsyn(string name, UnityAction func)
     {
-        MonoManager.GetInstance().StartCoroutine(LoadSceneAsynIE(name, func));
+        MonoManager.instance.StartCoroutine(LoadSceneAsynIE(name, func));
     }
 
     IEnumerator LoadSceneAsynIE(string name, UnityAction func)
@@ -30,7 +30,7 @@ public class ScenesManager : BaseManager<ScenesManager>
         while(!ao.isDone)
         {
             // 分发进度条，UI管理器监听该条信息
-            EventCenter.GetInstance().EventTrigger("Loading Scene", ao.progress);
+            EventCenter.instance.EventTrigger("Loading Scene", ao.progress);
             yield return ao.progress;
         }
         //yield return ao;

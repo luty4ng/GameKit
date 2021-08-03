@@ -47,4 +47,9 @@ public class MonoManager : BaseManager<MonoManager>
         }
         Object = globalObjects[name];
     }
+
+    public Dictionary<string, GameObject> GetObjs()
+    {
+        return globalObjects;
+    }
 }

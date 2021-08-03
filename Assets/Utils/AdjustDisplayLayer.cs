@@ -3,8 +3,11 @@ using System.Collections.Generic;
 
 public class AdjustDisplayLayer : MonoBehaviour
 {
-    public List<SpriteRenderer> spriteRenderers;
+    public string sortingLayer = "AutoAdjust";
+    public static int capacityRange = 30;
+    private List<SpriteRenderer> spriteRenderers;
     private int[] initSortingOrder;
+
     private void Awake()
     {
         spriteRenderers = new List<SpriteRenderer>(GetComponentsInChildren<SpriteRenderer>(true));
@@ -12,7 +15,7 @@ public class AdjustDisplayLayer : MonoBehaviour
         for (int i = 0; i < spriteRenderers.Count; i++)
         {
             initSortingOrder[i] = spriteRenderers[i].sortingOrder;
-            spriteRenderers[i].sortingLayerName = "AutoAdjust";
+            spriteRenderers[i].sortingLayerName = sortingLayer;
         }
     }
 
@@ -20,7 +23,7 @@ public class AdjustDisplayLayer : MonoBehaviour
     {
         for (int i = 0; i < spriteRenderers.Count; i++)
         {
-            spriteRenderers[i].sortingOrder = initSortingOrder[i] - (int)(transform.position.y * 30);
+            spriteRenderers[i].sortingOrder = initSortingOrder[i] - (int)(transform.position.y * capacityRange);
         }
     }
 }

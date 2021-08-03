@@ -12,10 +12,9 @@ public class AudioManager : BaseManager<AudioManager>
     private GameObject soundObj = null;
     private List<AudioSource> soundList = new List<AudioSource>();
 
-
     public AudioManager()
     {
-        MonoManager.GetInstance().AddUpdateListener(Update);
+        MonoManager.instance.AddUpdateListener(Update);
     }
 
     private void Update() {
@@ -36,7 +35,7 @@ public class AudioManager : BaseManager<AudioManager>
             BGM = obj.AddComponent<AudioSource>();
         }
 
-        ResourceManager.GetInstance().LoadAsync<AudioClip>("Audio/BGM/" + name, (clip) =>
+        ResourceManager.instance.LoadAsync<AudioClip>("Audio/BGM/" + name, (clip) =>
         {
             BGM.clip = clip;
             BGM.loop = true;
@@ -72,7 +71,7 @@ public class AudioManager : BaseManager<AudioManager>
             soundObj = new GameObject();
             soundObj.name = "Sound";
         }
-        ResourceManager.GetInstance().LoadAsync<AudioClip>("Audio/Sound/" + name, (clip)=>
+        ResourceManager.instance.LoadAsync<AudioClip>("Audio/Sound/" + name, (clip)=>
         {
             AudioSource source = soundObj.AddComponent<AudioSource>();
             source.clip = clip;
@@ -98,5 +97,10 @@ public class AudioManager : BaseManager<AudioManager>
             source.Stop();
             GameObject.Destroy(source);
         }
+    }
+
+    public List<AudioSource> GetSoundList()
+    {
+        return soundList;
     }
 }

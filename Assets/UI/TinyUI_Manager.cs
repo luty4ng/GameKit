@@ -17,7 +17,7 @@ public class TinyUI_Manager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Escape) && !pauseProp.activeInHierarchy)
         {
             Time.timeScale = 0;
-            InputManager.GetInstance().SetActive(false);
+            InputManager.instance.SetActive(false);
             pauseProp.SetActive(true);
 		    Cursor.visible = true;
             //Cursor.lockState = CursorLockMode.None;
@@ -27,7 +27,7 @@ public class TinyUI_Manager : MonoBehaviour
         {
             Time.timeScale = 1;
             pauseProp.SetActive(false);
-            InputManager.GetInstance().SetActive(true);
+            InputManager.instance.SetActive(true);
 		    Cursor.visible = false;
             //Cursor.lockState = CursorLockMode.None;
         }
@@ -54,7 +54,7 @@ public class TinyUI_Manager : MonoBehaviour
     {
         float value = slider.value;
         bgmSliderText.text = value.ToString();
-        AudioManager.GetInstance().ChangeBGMVolume(value / 100);
+        AudioManager.instance.ChangeBGMVolume(value / 100);
         Debug.Log(value);
     }
 
@@ -62,8 +62,8 @@ public class TinyUI_Manager : MonoBehaviour
     {
         float value = slider.value;
         mastserSliderText.text = value.ToString();
-        AudioManager.GetInstance().ChangeBGMVolume(value / 100);
-        AudioManager.GetInstance().ChangeSoundVolume(value / 100);
+        AudioManager.instance.ChangeBGMVolume(value / 100);
+        AudioManager.instance.ChangeSoundVolume(value / 100);
         Debug.Log(value);
     }
 
@@ -71,7 +71,7 @@ public class TinyUI_Manager : MonoBehaviour
     {
         float value = slider.value;
         soundSliderText.text = value.ToString();
-        AudioManager.GetInstance().ChangeSoundVolume(value  / 100);
+        AudioManager.instance.ChangeSoundVolume(value  / 100);
         Debug.Log(value);
     }
 }

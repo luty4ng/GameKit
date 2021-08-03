@@ -36,7 +36,7 @@ public class PoolData
 
 public class PoolManager : BaseManager<PoolManager>
 {
-    public Dictionary<string, PoolData> pool = new Dictionary<string, PoolData>();
+    private Dictionary<string, PoolData> pool = new Dictionary<string, PoolData>();
     private GameObject poolObj;
     public GameObject GetObj(string name)
     {
@@ -48,7 +48,7 @@ public class PoolManager : BaseManager<PoolManager>
         }
         else
         {
-            gameobj = ResourceManager.GetInstance().Load<GameObject>(name);
+            gameobj = ResourceManager.instance.Load<GameObject>(name);
             gameobj.name = name;
         }
         return gameobj;
@@ -81,7 +81,7 @@ public class PoolManager : BaseManager<PoolManager>
         }
         else
         {
-            ResourceManager.GetInstance().LoadAsync<GameObject>(name, (o) =>{
+            ResourceManager.instance.LoadAsync<GameObject>(name, (o) =>{
                 o.name = name;
                 callBack(o);
             });
@@ -115,5 +115,10 @@ public class PoolManager : BaseManager<PoolManager>
     {
         pool.Clear();
         poolObj = null;
+    }
+
+    public Dictionary<string, PoolData> GetPool()
+    {
+        return pool;
     }
 }
