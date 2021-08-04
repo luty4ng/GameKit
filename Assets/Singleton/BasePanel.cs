@@ -5,17 +5,26 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 
-public class BasePanel : MonoBehaviour
+public class BasePanel : UIBehaviour
 {
     private Dictionary<string, List<UIBehaviour>> panel = new Dictionary<string, List<UIBehaviour>>();
-
-    void Start()
+    protected override void Start()
     {
         FindChildrenByType<Button>();
         FindChildrenByType<Image>();
         FindChildrenByType<Text>();
         FindChildrenByType<Toggle>();
         FindChildrenByType<Slider>();
+        FindChildrenByType<BasePanel>();
+        OnStart();
+    }
+
+    protected virtual void OnStart()
+    {
+        foreach (var item in panel)
+        {
+            Debug.Log(this.gameObject.name + "-" + item.Value.GetType());
+        }
     }
 
     public virtual void Show()
@@ -28,7 +37,7 @@ public class BasePanel : MonoBehaviour
 
     }
 
-    protected T GetComponentInDic<T>(string name) where T : UIBehaviour
+    public T GetComponentInDic<T>(string name) where T : UIBehaviour
     {
         if (panel.ContainsKey(name))
         {
@@ -46,14 +55,16 @@ public class BasePanel : MonoBehaviour
     private void FindChildrenByType<T>() where T : UIBehaviour
     {
         T[] components = this.GetComponentsInChildren<T>();
-        string objName;
         for (int i = 0; i < components.Length; ++i)
         {
-            objName = components[i].gameObject.name;
-            if (panel.ContainsKey(objName))
-                panel[objName].Add(components[i]);
-            else
-                panel.Add(objName, new List<UIBehaviour>() { components[i] });
+            if (components[i].transform.parent == this.gameObject.transform)
+            {
+                string objName = components[i].gameObject.name;
+                if (panel.ContainsKey(objName))
+                    panel[objName].Add(components[i]);
+                else
+                    panel.Add(objName, new List<UIBehaviour>() { components[i] });
+            }
         }
     }
 }
