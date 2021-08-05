@@ -21,11 +21,10 @@ public class EventInfo : IEventInfo
         actions += action;
     }
 }
-
 public class EventCenter : BaseManager<EventCenter>
 {
 
-    private Dictionary<string, IEventInfo> events = new Dictionary<string, IEventInfo>();
+    [ExposedField] private Dictionary<string, IEventInfo> events = new Dictionary<string, IEventInfo>();
     public void AddEventListener<T>(string name, UnityAction<T> action)
     {
         if(events.ContainsKey(name))
