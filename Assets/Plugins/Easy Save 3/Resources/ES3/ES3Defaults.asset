@@ -33,9 +33,7 @@ MonoBehaviour:
     - Assembly-CSharp
     - DOTween.Modules
     - Sirenix.OdinInspector.CompatibilityLayer
-    - StylizedWaterForURP
     - Sirenix.OdinInspector.CompatibilityLayer.Editor
-    - StylizedWaterForURPEditor
     showAdvancedSettings: 0
   addMgrToSceneAutomatically: 0
   autoUpdateReferences: 1

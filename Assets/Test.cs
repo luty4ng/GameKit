@@ -15,12 +15,9 @@ public enum TestType
 }
 public class Test : MonoBehaviour
 {
-
+    [Tooltip("移动速度")] public float speed;
     void Start()
     {
-        // ExcelParser.ParseList<float>("List|float");
         
     }
-
-
 }
