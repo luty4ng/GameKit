@@ -10,14 +10,11 @@ public class TabGroup : MonoBehaviour
     [PreviewField] public Sprite tabHover;
     [PreviewField] public Sprite tabSelected;
     private TabButton current;
-    public void Register(TabButton tabButton)
-    {
-        if (tabButtons == null)
-            tabButtons = new List<TabButton>();
-        tabButtons.Add(tabButton);
-    }
     private void Start()
     {
+        tabButtons = new List<TabButton>(GetComponentsInChildren<TabButton>(true));
+        tabPanels = new List<TabPanel>(GetComponentsInChildren<TabPanel>(true));
+        ResetPanel();
         ResetToIdle();
     }
 
@@ -39,7 +36,13 @@ public class TabGroup : MonoBehaviour
     {
         current = button;
         ResetToIdle();
+        ResetPanel();
         current.buttonImage.sprite = tabSelected;
+        int index = button.transform.GetSiblingIndex();
+        if (index < tabPanels.Count)
+            tabPanels[index].gameObject.SetActive(true);
+        else
+            Debug.LogWarning($"There are tab button still have not been assigned in Object [{this.gameObject.name}].");
     }
 
     private void ResetToIdle()
@@ -48,6 +51,14 @@ public class TabGroup : MonoBehaviour
         {
             if (tabButtons[i] != current)
                 tabButtons[i].buttonImage.sprite = tabIdle;
+        }
+    }
+
+    private void ResetPanel()
+    {
+        for (int i = 0; i < tabPanels.Count; i++)
+        {
+            tabPanels[i].gameObject.SetActive(false);
         }
     }
 }

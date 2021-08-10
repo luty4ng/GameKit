@@ -13,7 +13,6 @@ public class TabButton : MonoBehaviour, IPointerDownHandler, IPointerEnterHandle
     {
         tabGroup = GetComponentInParent<TabGroup>();
         buttonImage = GetComponent<Image>();
-        tabGroup.Register(this);
     }
     public void OnPointerDown(PointerEventData eventData)
     {
