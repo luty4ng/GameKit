@@ -38,7 +38,7 @@ public class ExcelParser
 
     public static T ParseValueType<T>(string data)
     {
-        // Debug.Log(data);
         return (T)System.Convert.ChangeType(data, typeof(T));
     }
+
 }

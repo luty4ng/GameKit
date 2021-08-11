@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7b3ca5e5a684ab4a93727010e8c1189, type: 3}
-  m_Name: DemoPool
+  m_Script: {fileID: 11500000, guid: c97e051fc3f02ed4fb038700a9df1385, type: 3}
+  m_Name: ItemPool
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2

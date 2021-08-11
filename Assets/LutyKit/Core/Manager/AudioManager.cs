@@ -8,7 +8,6 @@ public class AudioManager : BaseManager<AudioManager>
     private AudioSource BGM = null;
     public float BGMVolume = 1;
     public float soundVolume = 1;
-
     private GameObject soundObj = null;
     private List<AudioSource> soundList = new List<AudioSource>();
 

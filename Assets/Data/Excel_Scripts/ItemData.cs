@@ -9,8 +9,9 @@ using UnityEditor;
 using Sirenix.OdinInspector;
 
 [System.Serializable]
-public class DemoData : BaseData
+public class ItemData : BaseData
 {
+	#region --- Auto Config --- 
 	public string id;
 	public string showName;
 	public string desc;
@@ -18,6 +19,7 @@ public class DemoData : BaseData
 	public ItemTypeEnum itemType;
 	public List<string> itemList;
 	public Dictionary<string, string> itemDic;
+	#endregion 
 }
 
 

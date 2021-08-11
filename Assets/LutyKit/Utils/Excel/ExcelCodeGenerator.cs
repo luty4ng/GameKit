@@ -90,10 +90,12 @@ namespace EditorTool
             classSource.Append("[System.Serializable]\n");
             classSource.Append("public class " + dataName + " : BaseData\n");
             classSource.Append("{\n");
+            classSource.Append("\t#region --- Auto Config --- \n");
             foreach (var item in propertyType)
             {
                 classSource.Append(CreateCodeProperty(item.Key, item.Value));
             }
+            classSource.Append("\t#endregion \n");
             classSource.Append("}\n");
             return classSource;
         }

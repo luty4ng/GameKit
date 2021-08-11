@@ -26,10 +26,8 @@ public class ScenesManager : BaseManager<ScenesManager>
     {
         AsyncOperation ao = SceneManager.LoadSceneAsync(name);
 
-        // 持续返回加载进度
         while(!ao.isDone)
         {
-            // 分发进度条，UI管理器监听该条信息
             EventCenter.instance.EventTrigger("Loading Scene", ao.progress);
             yield return ao.progress;
         }

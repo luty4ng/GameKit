@@ -8,23 +8,23 @@ using System.IO;
 using UnityEditor;
 using Sirenix.OdinInspector;
 
-[CreateAssetMenu(fileName = "DemoPool", menuName = "Excel2SO/Create DemoPool", order = 1)]
-public class DemoPool : BasePool<DemoData>
+[CreateAssetMenu(fileName = "ItemPool", menuName = "Excel2SO/Create ItemPool", order = 1)]
+public class ItemPool : BasePool<ItemData>
 {
 }
 
 #if UNITY_EDITOR
-public class DemoDataAssetAssignment
+public class ItemDataAssetAssignment
 {
 	public static bool CreateAsset(List<Dictionary<string, string>> dataList, string excelAssetPath)
 	{
 		if (dataList == null || dataList.Count == 0)
 			return false;
 		int rowCount = dataList.Count;
-		DemoData[] items = new DemoData[rowCount];
+		ItemData[] items = new ItemData[rowCount];
 		for (int i = 0; i < items.Length; i++)
 		{
-			items[i] = new DemoData();
+			items[i] = new ItemData();
 			items[i].id = ExcelParser.ParseValueType<string>(dataList[i]["id"]);
 			items[i].showName = ExcelParser.ParseValueType<string>(dataList[i]["showName"]);
 			items[i].desc = ExcelParser.ParseValueType<string>(dataList[i]["desc"]);
@@ -33,11 +33,11 @@ public class DemoDataAssetAssignment
 			items[i].itemList = ExcelParser.ParseList<string>(dataList[i]["itemList"]);
 			items[i].itemDic = ExcelParser.ParseDictionary<string, string>(dataList[i]["itemDic"]);
 		}
-		DemoPool excelDataAsset = ScriptableObject.CreateInstance<DemoPool>();
-		excelDataAsset.pool = new List<DemoData>(items);
+		ItemPool excelDataAsset = ScriptableObject.CreateInstance<ItemPool>();
+		excelDataAsset.pool = new List<ItemData>(items);
 		if (!Directory.Exists(excelAssetPath))
 			Directory.CreateDirectory(excelAssetPath);
-		string pullPath = excelAssetPath + "/" + typeof(DemoPool).Name + ".asset";
+		string pullPath = excelAssetPath + "/" + typeof(ItemPool).Name + ".asset";
 		UnityEditor.AssetDatabase.DeleteAsset(pullPath);
 		UnityEditor.AssetDatabase.CreateAsset(excelDataAsset, pullPath);
 		UnityEditor.AssetDatabase.Refresh();

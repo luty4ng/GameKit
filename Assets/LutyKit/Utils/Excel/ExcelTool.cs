@@ -1,11 +1,13 @@
 using UnityEngine;
 using System.Data;
-using System.Collections;
+using System.Linq;
 using System.Collections.Generic;
-using Data;
 using System.IO;
 using Excel;
 using System.Reflection;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 namespace EditorTool
 {
@@ -109,7 +111,7 @@ namespace EditorTool
             }
         }
 
-                private static bool WriteCodeStrToSave(string writeFilePath, string codeFileName, string classCodeStr)
+        private static bool WriteCodeStrToSave(string writeFilePath, string codeFileName, string classCodeStr)
         {
             if (string.IsNullOrEmpty(codeFileName) || string.IsNullOrEmpty(classCodeStr))
                 return false;
@@ -121,7 +123,10 @@ namespace EditorTool
             sw.WriteLine(classCodeStr);
             sw.Close();
             //
-            UnityEditor.AssetDatabase.Refresh();
+#if UNITY_EDITOR
+            AssetDatabase.Refresh();
+#endif
+
             return true;
         }
 
@@ -222,7 +227,9 @@ namespace EditorTool
 
             ExcelMediumData excelMediumData = new ExcelMediumData();
             //类名
-            excelMediumData.excelName = excelReader.Name;
+            // excelMediumData.excelName = excelReader.Name;
+            excelMediumData.excelName = excelFileFullPath.Split('/').LastOrDefault().Split('.')[0];
+            Debug.Log(excelMediumData.excelName);
             //Dictionary<数据名称,数据类型>
             excelMediumData.propertyType = new Dictionary<string, string>();
             //转换存储格式
@@ -238,7 +245,7 @@ namespace EditorTool
         }
 
         #region --- Excel Operation API ---
-        
+
         private static DataRowCollection ReadExcel(string filePath, ref int columnNum, ref int rowNum)
         {
             FileStream stream = File.Open(filePath, FileMode.Open, FileAccess.Read, FileShare.Read);
@@ -265,7 +272,7 @@ namespace EditorTool
                 types.Add(rowCollection[1][i].ToString());
             }
         }
-        
+
         #endregion
 
         // public static Item[] CreateItemSOWithExcel(string filePath)

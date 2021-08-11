@@ -31,12 +31,6 @@ public class JsonManager : BaseManager<JsonManager>
         MonoManager.instance.AddUpdateListener(JsonUpdate);
     }
 
-    /// <summary>
-    /// 此函数用于继承子MonoBehavior和ScritableObject的对象的反序列化
-    /// </summary>
-    /// <param name="fileName"></param>
-    /// <param name="loadObj"></param>
-    /// <typeparam name="T"></typeparam>
     public void LoadJsonDataOverwrite<T>(string fileName, T loadObj)
     {
         CheckDirExsit(fileName);
@@ -64,12 +58,6 @@ public class JsonManager : BaseManager<JsonManager>
         }
     }
 
-    /// <summary>
-    /// 此方法用于普通对象的反序列化
-    /// </summary>
-    /// <param name="fileName"></param>
-    /// <typeparam name="T"></typeparam>
-    /// <returns></returns>
     public T LoadJsonData<T>(string fileName)
     {
         CheckDirExsit(fileName);
@@ -99,7 +87,6 @@ public class JsonManager : BaseManager<JsonManager>
         }
         return allData;
     }
-
 
     public Dictionary<Key, Value> LoadJsonDict<Key, Value>(string fileName)
     {
