@@ -7,7 +7,6 @@ SpriteAtlas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Character_Sprite
-  serializedVersion: 2
   m_EditorData:
     serializedVersion: 2
     textureSettings:
@@ -79,4 +78,3 @@ SpriteAtlas:
   - Slime (red)_1
   m_Tag: Character_Sprite
   m_IsVariant: 0
-  m_IsPlaceholder: 0
