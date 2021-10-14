@@ -33,6 +33,7 @@ MonoBehaviour:
     - Assembly-CSharp
     - DOTween.Modules
     - Sirenix.OdinInspector.CompatibilityLayer
+    - TestField
     - Sirenix.OdinInspector.CompatibilityLayer.Editor
     showAdvancedSettings: 0
   addMgrToSceneAutomatically: 0
