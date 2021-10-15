@@ -7,17 +7,14 @@ using UnityEngine.Events;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
-public enum TestType
-{
-    A,
-    BBBB,
-    C
-}
-public class Test : MonoBehaviour
-{
-    [Tooltip("移动速度")] public float speed;
-    void Start()
-    {
-        
+
+public class Test : MonoBehaviour {
+    public Rigidbody rigidbody;
+    private void Start() {
+        rigidbody =  this.GetComponent<Rigidbody>();
+        // rigidbody.AddForce(Vector3.one * 100, ForceMode.Force);
+        rigidbody.AddForce(Vector3.one, ForceMode.Impulse);
+        // rigidbody.AddForce(Vector3.one, ForceMode.VelocityChange);
     }
+    
 }
