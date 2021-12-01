@@ -8,8 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: M_SG_SceneSwitch
-  m_Shader: {fileID: -6465566751694194690, guid: 6fd063086fb176244a3cd92c03f0de80,
-    type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 6fd063086fb176244a3cd92c03f0de80, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -19,18 +18,31 @@ Material:
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs: []
+    m_TexEnvs:
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
     - Vector1_A079BF86: 0
     - Vector1_D6D5C33F: 0.57
     - _height: -10
-    - animRate: 0
+    - animRate: 2
     - defaultDis: 5
     - frameRate: 0.5
-    - height: 10
+    - height: -10
     - interval: 5
     - shrink: 0
     m_Colors:
     - Vector2_458BCB11: {r: -0.4, g: 1.32, b: 0, a: 0}
     - _agentPos: {r: 0, g: 0, b: 0, a: 0}
     - localCenter: {r: -30, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []

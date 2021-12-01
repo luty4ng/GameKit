@@ -4,5 +4,17 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/_Prototype/Anisotropy/Basic.unity
+    guid: 2f1bc055c6b55a14a8251e1ff8ea16e1
+  - enabled: 1
+    path: Assets/_Prototype/Anisotropy/Worlds/Resources/Level1/Level1_WorldA.unity
+    guid: c3aba5326743ba24aa9b109a1b93152f
+  - enabled: 1
+    path: Assets/_Prototype/Anisotropy/Worlds/Resources/Level1/Level1_WorldB.unity
+    guid: 1d36afd80cd3be142a70112456cf952c
+  - enabled: 1
+    path: Assets/_Prototype/Anisotropy/Worlds/Resources/Level1/Level1_WorldC.unity
+    guid: 23ff8a4a6ecdf474ea50673add87144f
   m_configObjects: {}
