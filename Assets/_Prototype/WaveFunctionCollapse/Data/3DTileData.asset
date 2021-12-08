@@ -1,0 +1,2182 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ce7ac4cee4a9e7419078ef485991ffa, type: 3}
+  m_Name: 3DTileData
+  m_EditorClassIdentifier: 
+  Prototypes: {fileID: 1779956600917619001, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+  Modules:
+  - name: Edge R0
+    prototype: {fileID: 8436750134881404225, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    prefab: {fileID: 7060044103187325929, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    possibleNeighbors:
+    - adjacent:
+      - Edge R0
+      - CornorEdge R3
+    - adjacent:
+      - Edge R0
+    - adjacent:
+      - Edge R2
+      - InnerEmpty R0
+    - adjacent:
+      - Edge R0
+      - CornorEdge R0
+    - adjacent:
+      - Edge R0
+      - TopEdge R0
+    - adjacent:
+      - Edge R2
+      - TopEdge R2
+      - Cornor R1
+      - Cornor R2
+      - CornorEdge R1
+      - CornorEdge R2
+      - OuterEmpty R0
+      - LineTop R0
+      - LineTop R2
+      - LineCornor R0
+      - LineCornor R1
+      - LineCornor R2
+      - LineCornorEdge R0
+      - LineCornorEdge R1
+      - LineCornorEdge R2
+      - LineEdge R0
+      - LineEdge R2
+      - SingleTop R0
+      - SingleEdge R0
+    rotation: 0
+    index: 0
+  - name: Edge R1
+    prototype: {fileID: 8436750134881404225, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    prefab: {fileID: 7060044103187325929, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    possibleNeighbors:
+    - adjacent:
+      - Edge R3
+      - InnerEmpty R0
+    - adjacent:
+      - Edge R1
+    - adjacent:
+      - Edge R1
+      - CornorEdge R1
+    - adjacent:
+      - Edge R3
+      - TopEdge R3
+      - Cornor R2
+      - Cornor R3
+      - CornorEdge R2
+      - CornorEdge R3
+      - OuterEmpty R0
+      - LineTop R1
+      - LineTop R3
+      - LineCornor R1
+      - LineCornor R2
+      - LineCornor R3
+      - LineCornorEdge R1
+      - LineCornorEdge R2
+      - LineCornorEdge R3
+      - LineEdge R1
+      - LineEdge R3
+      - SingleTop R0
+      - SingleEdge R0
+    - adjacent:
+      - Edge R1
+      - TopEdge R1
+    - adjacent:
+      - Edge R1
+      - CornorEdge R0
+    rotation: 1
+    index: 1
+  - name: Edge R2
+    prototype: {fileID: 8436750134881404225, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    prefab: {fileID: 7060044103187325929, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    possibleNeighbors:
+    - adjacent:
+      - Edge R2
+      - CornorEdge R2
+    - adjacent:
+      - Edge R2
+    - adjacent:
+      - Edge R0
+      - TopEdge R0
+      - Cornor R0
+      - Cornor R3
+      - CornorEdge R0
+      - CornorEdge R3
+      - OuterEmpty R0
+      - LineTop R0
+      - LineTop R2
+      - LineCornor R0
+      - LineCornor R2
+      - LineCornor R3
+      - LineCornorEdge R0
+      - LineCornorEdge R2
+      - LineCornorEdge R3
+      - LineEdge R0
+      - LineEdge R2
+      - SingleTop R0
+      - SingleEdge R0
+    - adjacent:
+      - Edge R2
+      - CornorEdge R1
+    - adjacent:
+      - Edge R2
+      - TopEdge R2
+    - adjacent:
+      - Edge R0
+      - InnerEmpty R0
+    rotation: 2
+    index: 2
+  - name: Edge R3
+    prototype: {fileID: 8436750134881404225, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    prefab: {fileID: 7060044103187325929, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    possibleNeighbors:
+    - adjacent:
+      - Edge R1
+      - TopEdge R1
+      - Cornor R0
+      - Cornor R1
+      - CornorEdge R0
+      - CornorEdge R1
+      - OuterEmpty R0
+      - LineTop R1
+      - LineTop R3
+      - LineCornor R0
+      - LineCornor R1
+      - LineCornor R3
+      - LineCornorEdge R0
+      - LineCornorEdge R1
+      - LineCornorEdge R3
+      - LineEdge R1
+      - LineEdge R3
+      - SingleTop R0
+      - SingleEdge R0
+    - adjacent:
+      - Edge R3
+    - adjacent:
+      - Edge R3
+      - CornorEdge R2
+    - adjacent:
+      - Edge R1
+      - InnerEmpty R0
+    - adjacent:
+      - Edge R3
+      - TopEdge R3
+    - adjacent:
+      - Edge R3
+      - CornorEdge R3
+    rotation: 3
+    index: 3
+  - name: TopEdge R0
+    prototype: {fileID: 9166501768956307565, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    prefab: {fileID: 3579652704378198323, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    possibleNeighbors:
+    - adjacent:
+      - TopEdge R0
+      - Cornor R3
+    - adjacent:
+      - Edge R0
+    - adjacent:
+      - TopEdge R2
+      - Top R0
+    - adjacent:
+      - TopEdge R0
+      - Cornor R0
+    - adjacent:
+      - OuterEmpty R0
+    - adjacent:
+      - Edge R2
+      - TopEdge R2
+      - Cornor R1
+      - Cornor R2
+      - CornorEdge R1
+      - CornorEdge R2
+      - OuterEmpty R0
+      - LineTop R0
+      - LineTop R2
+      - LineCornor R0
+      - LineCornor R1
+      - LineCornor R2
+      - LineCornorEdge R0
+      - LineCornorEdge R1
+      - LineCornorEdge R2
+      - LineEdge R0
+      - LineEdge R2
+      - SingleTop R0
+      - SingleEdge R0
+    rotation: 0
+    index: 4
+  - name: TopEdge R1
+    prototype: {fileID: 9166501768956307565, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    prefab: {fileID: 3579652704378198323, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    possibleNeighbors:
+    - adjacent:
+      - TopEdge R3
+      - Top R0
+    - adjacent:
+      - Edge R1
+    - adjacent:
+      - TopEdge R1
+      - Cornor R1
+    - adjacent:
+      - Edge R3
+      - TopEdge R3
+      - Cornor R2
+      - Cornor R3
+      - CornorEdge R2
+      - CornorEdge R3
+      - OuterEmpty R0
+      - LineTop R1
+      - LineTop R3
+      - LineCornor R1
+      - LineCornor R2
+      - LineCornor R3
+      - LineCornorEdge R1
+      - LineCornorEdge R2
+      - LineCornorEdge R3
+      - LineEdge R1
+      - LineEdge R3
+      - SingleTop R0
+      - SingleEdge R0
+    - adjacent:
+      - OuterEmpty R0
+    - adjacent:
+      - TopEdge R1
+      - Cornor R0
+    rotation: 1
+    index: 5
+  - name: TopEdge R2
+    prototype: {fileID: 9166501768956307565, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    prefab: {fileID: 3579652704378198323, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    possibleNeighbors:
+    - adjacent:
+      - TopEdge R2
+      - Cornor R2
+    - adjacent:
+      - Edge R2
+    - adjacent:
+      - Edge R0
+      - TopEdge R0
+      - Cornor R0
+      - Cornor R3
+      - CornorEdge R0
+      - CornorEdge R3
+      - OuterEmpty R0
+      - LineTop R0
+      - LineTop R2
+      - LineCornor R0
+      - LineCornor R2
+      - LineCornor R3
+      - LineCornorEdge R0
+      - LineCornorEdge R2
+      - LineCornorEdge R3
+      - LineEdge R0
+      - LineEdge R2
+      - SingleTop R0
+      - SingleEdge R0
+    - adjacent:
+      - TopEdge R2
+      - Cornor R1
+    - adjacent:
+      - OuterEmpty R0
+    - adjacent:
+      - TopEdge R0
+      - Top R0
+    rotation: 2
+    index: 6
+  - name: TopEdge R3
+    prototype: {fileID: 9166501768956307565, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    prefab: {fileID: 3579652704378198323, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    possibleNeighbors:
+    - adjacent:
+      - Edge R1
+      - TopEdge R1
+      - Cornor R0
+      - Cornor R1
+      - CornorEdge R0
+      - CornorEdge R1
+      - OuterEmpty R0
+      - LineTop R1
+      - LineTop R3
+      - LineCornor R0
+      - LineCornor R1
+      - LineCornor R3
+      - LineCornorEdge R0
+      - LineCornorEdge R1
+      - LineCornorEdge R3
+      - LineEdge R1
+      - LineEdge R3
+      - SingleTop R0
+      - SingleEdge R0
+    - adjacent:
+      - Edge R3
+    - adjacent:
+      - TopEdge R3
+      - Cornor R2
+    - adjacent:
+      - TopEdge R1
+      - Top R0
+    - adjacent:
+      - OuterEmpty R0
+    - adjacent:
+      - TopEdge R3
+      - Cornor R3
+    rotation: 3
+    index: 7
+  - name: Cornor R0
+    prototype: {fileID: 1977842873412499955, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    prefab: {fileID: 5417627194027995952, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    possibleNeighbors:
+    - adjacent:
+      - TopEdge R0
+      - Cornor R3
+    - adjacent:
+      - CornorEdge R0
+    - adjacent:
+      - TopEdge R1
+      - Cornor R1
+    - adjacent:
+      - Edge R3
+      - TopEdge R3
+      - Cornor R2
+      - Cornor R3
+      - CornorEdge R2
+      - CornorEdge R3
+      - OuterEmpty R0
+      - LineTop R1
+      - LineTop R3
+      - LineCornor R1
+      - LineCornor R2
+      - LineCornor R3
+      - LineCornorEdge R1
+      - LineCornorEdge R2
+      - LineCornorEdge R3
+      - LineEdge R1
+      - LineEdge R3
+      - SingleTop R0
+      - SingleEdge R0
+    - adjacent:
+      - OuterEmpty R0
+    - adjacent:
+      - Edge R2
+      - TopEdge R2
+      - Cornor R1
+      - Cornor R2
+      - CornorEdge R1
+      - CornorEdge R2
+      - OuterEmpty R0
+      - LineTop R0
+      - LineTop R2
+      - LineCornor R0
+      - LineCornor R1
+      - LineCornor R2
+      - LineCornorEdge R0
+      - LineCornorEdge R1
+      - LineCornorEdge R2
+      - LineEdge R0
+      - LineEdge R2
+      - SingleTop R0
+      - SingleEdge R0
+    rotation: 0
+    index: 8
+  - name: Cornor R1
+    prototype: {fileID: 1977842873412499955, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    prefab: {fileID: 5417627194027995952, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    possibleNeighbors:
+    - adjacent:
+      - TopEdge R2
+      - Cornor R2
+    - adjacent:
+      - CornorEdge R1
+    - adjacent:
+      - Edge R0
+      - TopEdge R0
+      - Cornor R0
+      - Cornor R3
+      - CornorEdge R0
+      - CornorEdge R3
+      - OuterEmpty R0
+      - LineTop R0
+      - LineTop R2
+      - LineCornor R0
+      - LineCornor R2
+      - LineCornor R3
+      - LineCornorEdge R0
+      - LineCornorEdge R2
+      - LineCornorEdge R3
+      - LineEdge R0
+      - LineEdge R2
+      - SingleTop R0
+      - SingleEdge R0
+    - adjacent:
+      - Edge R3
+      - TopEdge R3
+      - Cornor R2
+      - Cornor R3
+      - CornorEdge R2
+      - CornorEdge R3
+      - OuterEmpty R0
+      - LineTop R1
+      - LineTop R3
+      - LineCornor R1
+      - LineCornor R2
+      - LineCornor R3
+      - LineCornorEdge R1
+      - LineCornorEdge R2
+      - LineCornorEdge R3
+      - LineEdge R1
+      - LineEdge R3
+      - SingleTop R0
+      - SingleEdge R0
+    - adjacent:
+      - OuterEmpty R0
+    - adjacent:
+      - TopEdge R1
+      - Cornor R0
+    rotation: 1
+    index: 9
+  - name: Cornor R2
+    prototype: {fileID: 1977842873412499955, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    prefab: {fileID: 5417627194027995952, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    possibleNeighbors:
+    - adjacent:
+      - Edge R1
+      - TopEdge R1
+      - Cornor R0
+      - Cornor R1
+      - CornorEdge R0
+      - CornorEdge R1
+      - OuterEmpty R0
+      - LineTop R1
+      - LineTop R3
+      - LineCornor R0
+      - LineCornor R1
+      - LineCornor R3
+      - LineCornorEdge R0
+      - LineCornorEdge R1
+      - LineCornorEdge R3
+      - LineEdge R1
+      - LineEdge R3
+      - SingleTop R0
+      - SingleEdge R0
+    - adjacent:
+      - CornorEdge R2
+    - adjacent:
+      - Edge R0
+      - TopEdge R0
+      - Cornor R0
+      - Cornor R3
+      - CornorEdge R0
+      - CornorEdge R3
+      - OuterEmpty R0
+      - LineTop R0
+      - LineTop R2
+      - LineCornor R0
+      - LineCornor R2
+      - LineCornor R3
+      - LineCornorEdge R0
+      - LineCornorEdge R2
+      - LineCornorEdge R3
+      - LineEdge R0
+      - LineEdge R2
+      - SingleTop R0
+      - SingleEdge R0
+    - adjacent:
+      - TopEdge R2
+      - Cornor R1
+    - adjacent:
+      - OuterEmpty R0
+    - adjacent:
+      - TopEdge R3
+      - Cornor R3
+    rotation: 2
+    index: 10
+  - name: Cornor R3
+    prototype: {fileID: 1977842873412499955, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    prefab: {fileID: 5417627194027995952, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    possibleNeighbors:
+    - adjacent:
+      - Edge R1
+      - TopEdge R1
+      - Cornor R0
+      - Cornor R1
+      - CornorEdge R0
+      - CornorEdge R1
+      - OuterEmpty R0
+      - LineTop R1
+      - LineTop R3
+      - LineCornor R0
+      - LineCornor R1
+      - LineCornor R3
+      - LineCornorEdge R0
+      - LineCornorEdge R1
+      - LineCornorEdge R3
+      - LineEdge R1
+      - LineEdge R3
+      - SingleTop R0
+      - SingleEdge R0
+    - adjacent:
+      - CornorEdge R3
+    - adjacent:
+      - TopEdge R3
+      - Cornor R2
+    - adjacent:
+      - TopEdge R0
+      - Cornor R0
+    - adjacent:
+      - OuterEmpty R0
+    - adjacent:
+      - Edge R2
+      - TopEdge R2
+      - Cornor R1
+      - Cornor R2
+      - CornorEdge R1
+      - CornorEdge R2
+      - OuterEmpty R0
+      - LineTop R0
+      - LineTop R2
+      - LineCornor R0
+      - LineCornor R1
+      - LineCornor R2
+      - LineCornorEdge R0
+      - LineCornorEdge R1
+      - LineCornorEdge R2
+      - LineEdge R0
+      - LineEdge R2
+      - SingleTop R0
+      - SingleEdge R0
+    rotation: 3
+    index: 11
+  - name: CornorEdge R0
+    prototype: {fileID: 378378709127529426, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    prefab: {fileID: 8755438893531846420, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    possibleNeighbors:
+    - adjacent:
+      - Edge R0
+      - CornorEdge R3
+    - adjacent:
+      - CornorEdge R0
+    - adjacent:
+      - Edge R1
+      - CornorEdge R1
+    - adjacent:
+      - Edge R3
+      - TopEdge R3
+      - Cornor R2
+      - Cornor R3
+      - CornorEdge R2
+      - CornorEdge R3
+      - OuterEmpty R0
+      - LineTop R1
+      - LineTop R3
+      - LineCornor R1
+      - LineCornor R2
+      - LineCornor R3
+      - LineCornorEdge R1
+      - LineCornorEdge R2
+      - LineCornorEdge R3
+      - LineEdge R1
+      - LineEdge R3
+      - SingleTop R0
+      - SingleEdge R0
+    - adjacent:
+      - Cornor R0
+      - CornorEdge R0
+    - adjacent:
+      - Edge R2
+      - TopEdge R2
+      - Cornor R1
+      - Cornor R2
+      - CornorEdge R1
+      - CornorEdge R2
+      - OuterEmpty R0
+      - LineTop R0
+      - LineTop R2
+      - LineCornor R0
+      - LineCornor R1
+      - LineCornor R2
+      - LineCornorEdge R0
+      - LineCornorEdge R1
+      - LineCornorEdge R2
+      - LineEdge R0
+      - LineEdge R2
+      - SingleTop R0
+      - SingleEdge R0
+    rotation: 0
+    index: 12
+  - name: CornorEdge R1
+    prototype: {fileID: 378378709127529426, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    prefab: {fileID: 8755438893531846420, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    possibleNeighbors:
+    - adjacent:
+      - Edge R2
+      - CornorEdge R2
+    - adjacent:
+      - CornorEdge R1
+    - adjacent:
+      - Edge R0
+      - TopEdge R0
+      - Cornor R0
+      - Cornor R3
+      - CornorEdge R0
+      - CornorEdge R3
+      - OuterEmpty R0
+      - LineTop R0
+      - LineTop R2
+      - LineCornor R0
+      - LineCornor R2
+      - LineCornor R3
+      - LineCornorEdge R0
+      - LineCornorEdge R2
+      - LineCornorEdge R3
+      - LineEdge R0
+      - LineEdge R2
+      - SingleTop R0
+      - SingleEdge R0
+    - adjacent:
+      - Edge R3
+      - TopEdge R3
+      - Cornor R2
+      - Cornor R3
+      - CornorEdge R2
+      - CornorEdge R3
+      - OuterEmpty R0
+      - LineTop R1
+      - LineTop R3
+      - LineCornor R1
+      - LineCornor R2
+      - LineCornor R3
+      - LineCornorEdge R1
+      - LineCornorEdge R2
+      - LineCornorEdge R3
+      - LineEdge R1
+      - LineEdge R3
+      - SingleTop R0
+      - SingleEdge R0
+    - adjacent:
+      - Cornor R1
+      - CornorEdge R1
+    - adjacent:
+      - Edge R1
+      - CornorEdge R0
+    rotation: 1
+    index: 13
+  - name: CornorEdge R2
+    prototype: {fileID: 378378709127529426, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    prefab: {fileID: 8755438893531846420, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    possibleNeighbors:
+    - adjacent:
+      - Edge R1
+      - TopEdge R1
+      - Cornor R0
+      - Cornor R1
+      - CornorEdge R0
+      - CornorEdge R1
+      - OuterEmpty R0
+      - LineTop R1
+      - LineTop R3
+      - LineCornor R0
+      - LineCornor R1
+      - LineCornor R3
+      - LineCornorEdge R0
+      - LineCornorEdge R1
+      - LineCornorEdge R3
+      - LineEdge R1
+      - LineEdge R3
+      - SingleTop R0
+      - SingleEdge R0
+    - adjacent:
+      - CornorEdge R2
+    - adjacent:
+      - Edge R0
+      - TopEdge R0
+      - Cornor R0
+      - Cornor R3
+      - CornorEdge R0
+      - CornorEdge R3
+      - OuterEmpty R0
+      - LineTop R0
+      - LineTop R2
+      - LineCornor R0
+      - LineCornor R2
+      - LineCornor R3
+      - LineCornorEdge R0
+      - LineCornorEdge R2
+      - LineCornorEdge R3
+      - LineEdge R0
+      - LineEdge R2
+      - SingleTop R0
+      - SingleEdge R0
+    - adjacent:
+      - Edge R2
+      - CornorEdge R1
+    - adjacent:
+      - Cornor R2
+      - CornorEdge R2
+    - adjacent:
+      - Edge R3
+      - CornorEdge R3
+    rotation: 2
+    index: 14
+  - name: CornorEdge R3
+    prototype: {fileID: 378378709127529426, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    prefab: {fileID: 8755438893531846420, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    possibleNeighbors:
+    - adjacent:
+      - Edge R1
+      - TopEdge R1
+      - Cornor R0
+      - Cornor R1
+      - CornorEdge R0
+      - CornorEdge R1
+      - OuterEmpty R0
+      - LineTop R1
+      - LineTop R3
+      - LineCornor R0
+      - LineCornor R1
+      - LineCornor R3
+      - LineCornorEdge R0
+      - LineCornorEdge R1
+      - LineCornorEdge R3
+      - LineEdge R1
+      - LineEdge R3
+      - SingleTop R0
+      - SingleEdge R0
+    - adjacent:
+      - CornorEdge R3
+    - adjacent:
+      - Edge R3
+      - CornorEdge R2
+    - adjacent:
+      - Edge R0
+      - CornorEdge R0
+    - adjacent:
+      - Cornor R3
+      - CornorEdge R3
+    - adjacent:
+      - Edge R2
+      - TopEdge R2
+      - Cornor R1
+      - Cornor R2
+      - CornorEdge R1
+      - CornorEdge R2
+      - OuterEmpty R0
+      - LineTop R0
+      - LineTop R2
+      - LineCornor R0
+      - LineCornor R1
+      - LineCornor R2
+      - LineCornorEdge R0
+      - LineCornorEdge R1
+      - LineCornorEdge R2
+      - LineEdge R0
+      - LineEdge R2
+      - SingleTop R0
+      - SingleEdge R0
+    rotation: 3
+    index: 15
+  - name: Top R0
+    prototype: {fileID: 7660214574776956298, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    prefab: {fileID: 6973641198613950896, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    possibleNeighbors:
+    - adjacent:
+      - TopEdge R3
+      - Top R0
+    - adjacent:
+      - InnerEmpty R0
+      - SingleEdge R0
+    - adjacent:
+      - TopEdge R2
+      - Top R0
+    - adjacent:
+      - TopEdge R1
+      - Top R0
+    - adjacent:
+      - OuterEmpty R0
+    - adjacent:
+      - TopEdge R0
+      - Top R0
+    rotation: 0
+    index: 16
+  - name: InnerEmpty R0
+    prototype: {fileID: 1159388992795576906, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    prefab: {fileID: 5308501179408132049, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    possibleNeighbors:
+    - adjacent:
+      - Edge R3
+      - InnerEmpty R0
+    - adjacent:
+      - InnerEmpty R0
+      - SingleEdge R0
+    - adjacent:
+      - Edge R2
+      - InnerEmpty R0
+    - adjacent:
+      - Edge R1
+      - InnerEmpty R0
+    - adjacent:
+      - Top R0
+      - InnerEmpty R0
+    - adjacent:
+      - Edge R0
+      - InnerEmpty R0
+    rotation: 0
+    index: 17
+  - name: OuterEmpty R0
+    prototype: {fileID: 7644550795734314134, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    prefab: {fileID: 9079315298250953752, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    possibleNeighbors:
+    - adjacent:
+      - Edge R1
+      - TopEdge R1
+      - Cornor R0
+      - Cornor R1
+      - CornorEdge R0
+      - CornorEdge R1
+      - OuterEmpty R0
+      - LineTop R1
+      - LineTop R3
+      - LineCornor R0
+      - LineCornor R1
+      - LineCornor R3
+      - LineCornorEdge R0
+      - LineCornorEdge R1
+      - LineCornorEdge R3
+      - LineEdge R1
+      - LineEdge R3
+      - SingleTop R0
+      - SingleEdge R0
+    - adjacent:
+      - TopEdge R0
+      - TopEdge R1
+      - TopEdge R2
+      - TopEdge R3
+      - Cornor R0
+      - Cornor R1
+      - Cornor R2
+      - Cornor R3
+      - Top R0
+      - OuterEmpty R0
+      - LineTop R0
+      - LineTop R1
+      - LineTop R2
+      - LineTop R3
+      - LineCornor R0
+      - LineCornor R1
+      - LineCornor R2
+      - LineCornor R3
+      - SingleTop R0
+    - adjacent:
+      - Edge R0
+      - TopEdge R0
+      - Cornor R0
+      - Cornor R3
+      - CornorEdge R0
+      - CornorEdge R3
+      - OuterEmpty R0
+      - LineTop R0
+      - LineTop R2
+      - LineCornor R0
+      - LineCornor R2
+      - LineCornor R3
+      - LineCornorEdge R0
+      - LineCornorEdge R2
+      - LineCornorEdge R3
+      - LineEdge R0
+      - LineEdge R2
+      - SingleTop R0
+      - SingleEdge R0
+    - adjacent:
+      - Edge R3
+      - TopEdge R3
+      - Cornor R2
+      - Cornor R3
+      - CornorEdge R2
+      - CornorEdge R3
+      - OuterEmpty R0
+      - LineTop R1
+      - LineTop R3
+      - LineCornor R1
+      - LineCornor R2
+      - LineCornor R3
+      - LineCornorEdge R1
+      - LineCornorEdge R2
+      - LineCornorEdge R3
+      - LineEdge R1
+      - LineEdge R3
+      - SingleTop R0
+      - SingleEdge R0
+    - adjacent:
+      - OuterEmpty R0
+    - adjacent:
+      - Edge R2
+      - TopEdge R2
+      - Cornor R1
+      - Cornor R2
+      - CornorEdge R1
+      - CornorEdge R2
+      - OuterEmpty R0
+      - LineTop R0
+      - LineTop R2
+      - LineCornor R0
+      - LineCornor R1
+      - LineCornor R2
+      - LineCornorEdge R0
+      - LineCornorEdge R1
+      - LineCornorEdge R2
+      - LineEdge R0
+      - LineEdge R2
+      - SingleTop R0
+      - SingleEdge R0
+    rotation: 0
+    index: 18
+  - name: LineTop R0
+    prototype: {fileID: 6700506090467362220, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    prefab: {fileID: 5113561819123865614, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    possibleNeighbors:
+    - adjacent:
+      - LineTop R0
+      - LineTop R2
+      - LineCornor R2
+    - adjacent:
+      - LineEdge R0
+    - adjacent:
+      - Edge R0
+      - TopEdge R0
+      - Cornor R0
+      - Cornor R3
+      - CornorEdge R0
+      - CornorEdge R3
+      - OuterEmpty R0
+      - LineTop R0
+      - LineTop R2
+      - LineCornor R0
+      - LineCornor R2
+      - LineCornor R3
+      - LineCornorEdge R0
+      - LineCornorEdge R2
+      - LineCornorEdge R3
+      - LineEdge R0
+      - LineEdge R2
+      - SingleTop R0
+      - SingleEdge R0
+    - adjacent:
+      - LineTop R0
+      - LineTop R2
+      - LineCornor R0
+    - adjacent:
+      - OuterEmpty R0
+    - adjacent:
+      - Edge R2
+      - TopEdge R2
+      - Cornor R1
+      - Cornor R2
+      - CornorEdge R1
+      - CornorEdge R2
+      - OuterEmpty R0
+      - LineTop R0
+      - LineTop R2
+      - LineCornor R0
+      - LineCornor R1
+      - LineCornor R2
+      - LineCornorEdge R0
+      - LineCornorEdge R1
+      - LineCornorEdge R2
+      - LineEdge R0
+      - LineEdge R2
+      - SingleTop R0
+      - SingleEdge R0
+    rotation: 0
+    index: 19
+  - name: LineTop R1
+    prototype: {fileID: 6700506090467362220, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    prefab: {fileID: 5113561819123865614, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    possibleNeighbors:
+    - adjacent:
+      - Edge R1
+      - TopEdge R1
+      - Cornor R0
+      - Cornor R1
+      - CornorEdge R0
+      - CornorEdge R1
+      - OuterEmpty R0
+      - LineTop R1
+      - LineTop R3
+      - LineCornor R0
+      - LineCornor R1
+      - LineCornor R3
+      - LineCornorEdge R0
+      - LineCornorEdge R1
+      - LineCornorEdge R3
+      - LineEdge R1
+      - LineEdge R3
+      - SingleTop R0
+      - SingleEdge R0
+    - adjacent:
+      - LineEdge R1
+    - adjacent:
+      - LineTop R1
+      - LineTop R3
+      - LineCornor R1
+    - adjacent:
+      - Edge R3
+      - TopEdge R3
+      - Cornor R2
+      - Cornor R3
+      - CornorEdge R2
+      - CornorEdge R3
+      - OuterEmpty R0
+      - LineTop R1
+      - LineTop R3
+      - LineCornor R1
+      - LineCornor R2
+      - LineCornor R3
+      - LineCornorEdge R1
+      - LineCornorEdge R2
+      - LineCornorEdge R3
+      - LineEdge R1
+      - LineEdge R3
+      - SingleTop R0
+      - SingleEdge R0
+    - adjacent:
+      - OuterEmpty R0
+    - adjacent:
+      - LineTop R1
+      - LineTop R3
+      - LineCornor R3
+    rotation: 1
+    index: 20
+  - name: LineTop R2
+    prototype: {fileID: 6700506090467362220, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    prefab: {fileID: 5113561819123865614, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    possibleNeighbors:
+    - adjacent:
+      - LineTop R0
+      - LineTop R2
+      - LineCornor R2
+    - adjacent:
+      - LineEdge R2
+    - adjacent:
+      - Edge R0
+      - TopEdge R0
+      - Cornor R0
+      - Cornor R3
+      - CornorEdge R0
+      - CornorEdge R3
+      - OuterEmpty R0
+      - LineTop R0
+      - LineTop R2
+      - LineCornor R0
+      - LineCornor R2
+      - LineCornor R3
+      - LineCornorEdge R0
+      - LineCornorEdge R2
+      - LineCornorEdge R3
+      - LineEdge R0
+      - LineEdge R2
+      - SingleTop R0
+      - SingleEdge R0
+    - adjacent:
+      - LineTop R0
+      - LineTop R2
+      - LineCornor R0
+    - adjacent:
+      - OuterEmpty R0
+    - adjacent:
+      - Edge R2
+      - TopEdge R2
+      - Cornor R1
+      - Cornor R2
+      - CornorEdge R1
+      - CornorEdge R2
+      - OuterEmpty R0
+      - LineTop R0
+      - LineTop R2
+      - LineCornor R0
+      - LineCornor R1
+      - LineCornor R2
+      - LineCornorEdge R0
+      - LineCornorEdge R1
+      - LineCornorEdge R2
+      - LineEdge R0
+      - LineEdge R2
+      - SingleTop R0
+      - SingleEdge R0
+    rotation: 2
+    index: 21
+  - name: LineTop R3
+    prototype: {fileID: 6700506090467362220, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    prefab: {fileID: 5113561819123865614, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    possibleNeighbors:
+    - adjacent:
+      - Edge R1
+      - TopEdge R1
+      - Cornor R0
+      - Cornor R1
+      - CornorEdge R0
+      - CornorEdge R1
+      - OuterEmpty R0
+      - LineTop R1
+      - LineTop R3
+      - LineCornor R0
+      - LineCornor R1
+      - LineCornor R3
+      - LineCornorEdge R0
+      - LineCornorEdge R1
+      - LineCornorEdge R3
+      - LineEdge R1
+      - LineEdge R3
+      - SingleTop R0
+      - SingleEdge R0
+    - adjacent:
+      - LineEdge R3
+    - adjacent:
+      - LineTop R1
+      - LineTop R3
+      - LineCornor R1
+    - adjacent:
+      - Edge R3
+      - TopEdge R3
+      - Cornor R2
+      - Cornor R3
+      - CornorEdge R2
+      - CornorEdge R3
+      - OuterEmpty R0
+      - LineTop R1
+      - LineTop R3
+      - LineCornor R1
+      - LineCornor R2
+      - LineCornor R3
+      - LineCornorEdge R1
+      - LineCornorEdge R2
+      - LineCornorEdge R3
+      - LineEdge R1
+      - LineEdge R3
+      - SingleTop R0
+      - SingleEdge R0
+    - adjacent:
+      - OuterEmpty R0
+    - adjacent:
+      - LineTop R1
+      - LineTop R3
+      - LineCornor R3
+    rotation: 3
+    index: 22
+  - name: LineCornor R0
+    prototype: {fileID: 5228141020893797093, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    prefab: {fileID: 3201379291320553810, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    possibleNeighbors:
+    - adjacent:
+      - LineTop R0
+      - LineTop R2
+      - LineCornor R2
+    - adjacent:
+      - LineCornorEdge R0
+    - adjacent:
+      - Edge R0
+      - TopEdge R0
+      - Cornor R0
+      - Cornor R3
+      - CornorEdge R0
+      - CornorEdge R3
+      - OuterEmpty R0
+      - LineTop R0
+      - LineTop R2
+      - LineCornor R0
+      - LineCornor R2
+      - LineCornor R3
+      - LineCornorEdge R0
+      - LineCornorEdge R2
+      - LineCornorEdge R3
+      - LineEdge R0
+      - LineEdge R2
+      - SingleTop R0
+      - SingleEdge R0
+    - adjacent:
+      - Edge R3
+      - TopEdge R3
+      - Cornor R2
+      - Cornor R3
+      - CornorEdge R2
+      - CornorEdge R3
+      - OuterEmpty R0
+      - LineTop R1
+      - LineTop R3
+      - LineCornor R1
+      - LineCornor R2
+      - LineCornor R3
+      - LineCornorEdge R1
+      - LineCornorEdge R2
+      - LineCornorEdge R3
+      - LineEdge R1
+      - LineEdge R3
+      - SingleTop R0
+      - SingleEdge R0
+    - adjacent:
+      - OuterEmpty R0
+    - adjacent:
+      - Edge R2
+      - TopEdge R2
+      - Cornor R1
+      - Cornor R2
+      - CornorEdge R1
+      - CornorEdge R2
+      - OuterEmpty R0
+      - LineTop R0
+      - LineTop R2
+      - LineCornor R0
+      - LineCornor R1
+      - LineCornor R2
+      - LineCornorEdge R0
+      - LineCornorEdge R1
+      - LineCornorEdge R2
+      - LineEdge R0
+      - LineEdge R2
+      - SingleTop R0
+      - SingleEdge R0
+    rotation: 0
+    index: 23
+  - name: LineCornor R1
+    prototype: {fileID: 5228141020893797093, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    prefab: {fileID: 3201379291320553810, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    possibleNeighbors:
+    - adjacent:
+      - Edge R1
+      - TopEdge R1
+      - Cornor R0
+      - Cornor R1
+      - CornorEdge R0
+      - CornorEdge R1
+      - OuterEmpty R0
+      - LineTop R1
+      - LineTop R3
+      - LineCornor R0
+      - LineCornor R1
+      - LineCornor R3
+      - LineCornorEdge R0
+      - LineCornorEdge R1
+      - LineCornorEdge R3
+      - LineEdge R1
+      - LineEdge R3
+      - SingleTop R0
+      - SingleEdge R0
+    - adjacent:
+      - LineCornorEdge R1
+    - adjacent:
+      - Edge R0
+      - TopEdge R0
+      - Cornor R0
+      - Cornor R3
+      - CornorEdge R0
+      - CornorEdge R3
+      - OuterEmpty R0
+      - LineTop R0
+      - LineTop R2
+      - LineCornor R0
+      - LineCornor R2
+      - LineCornor R3
+      - LineCornorEdge R0
+      - LineCornorEdge R2
+      - LineCornorEdge R3
+      - LineEdge R0
+      - LineEdge R2
+      - SingleTop R0
+      - SingleEdge R0
+    - adjacent:
+      - Edge R3
+      - TopEdge R3
+      - Cornor R2
+      - Cornor R3
+      - CornorEdge R2
+      - CornorEdge R3
+      - OuterEmpty R0
+      - LineTop R1
+      - LineTop R3
+      - LineCornor R1
+      - LineCornor R2
+      - LineCornor R3
+      - LineCornorEdge R1
+      - LineCornorEdge R2
+      - LineCornorEdge R3
+      - LineEdge R1
+      - LineEdge R3
+      - SingleTop R0
+      - SingleEdge R0
+    - adjacent:
+      - OuterEmpty R0
+    - adjacent:
+      - LineTop R1
+      - LineTop R3
+      - LineCornor R3
+    rotation: 1
+    index: 24
+  - name: LineCornor R2
+    prototype: {fileID: 5228141020893797093, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    prefab: {fileID: 3201379291320553810, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    possibleNeighbors:
+    - adjacent:
+      - Edge R1
+      - TopEdge R1
+      - Cornor R0
+      - Cornor R1
+      - CornorEdge R0
+      - CornorEdge R1
+      - OuterEmpty R0
+      - LineTop R1
+      - LineTop R3
+      - LineCornor R0
+      - LineCornor R1
+      - LineCornor R3
+      - LineCornorEdge R0
+      - LineCornorEdge R1
+      - LineCornorEdge R3
+      - LineEdge R1
+      - LineEdge R3
+      - SingleTop R0
+      - SingleEdge R0
+    - adjacent:
+      - LineCornorEdge R2
+    - adjacent:
+      - Edge R0
+      - TopEdge R0
+      - Cornor R0
+      - Cornor R3
+      - CornorEdge R0
+      - CornorEdge R3
+      - OuterEmpty R0
+      - LineTop R0
+      - LineTop R2
+      - LineCornor R0
+      - LineCornor R2
+      - LineCornor R3
+      - LineCornorEdge R0
+      - LineCornorEdge R2
+      - LineCornorEdge R3
+      - LineEdge R0
+      - LineEdge R2
+      - SingleTop R0
+      - SingleEdge R0
+    - adjacent:
+      - LineTop R0
+      - LineTop R2
+      - LineCornor R0
+    - adjacent:
+      - OuterEmpty R0
+    - adjacent:
+      - Edge R2
+      - TopEdge R2
+      - Cornor R1
+      - Cornor R2
+      - CornorEdge R1
+      - CornorEdge R2
+      - OuterEmpty R0
+      - LineTop R0
+      - LineTop R2
+      - LineCornor R0
+      - LineCornor R1
+      - LineCornor R2
+      - LineCornorEdge R0
+      - LineCornorEdge R1
+      - LineCornorEdge R2
+      - LineEdge R0
+      - LineEdge R2
+      - SingleTop R0
+      - SingleEdge R0
+    rotation: 2
+    index: 25
+  - name: LineCornor R3
+    prototype: {fileID: 5228141020893797093, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    prefab: {fileID: 3201379291320553810, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    possibleNeighbors:
+    - adjacent:
+      - Edge R1
+      - TopEdge R1
+      - Cornor R0
+      - Cornor R1
+      - CornorEdge R0
+      - CornorEdge R1
+      - OuterEmpty R0
+      - LineTop R1
+      - LineTop R3
+      - LineCornor R0
+      - LineCornor R1
+      - LineCornor R3
+      - LineCornorEdge R0
+      - LineCornorEdge R1
+      - LineCornorEdge R3
+      - LineEdge R1
+      - LineEdge R3
+      - SingleTop R0
+      - SingleEdge R0
+    - adjacent:
+      - LineCornorEdge R3
+    - adjacent:
+      - LineTop R1
+      - LineTop R3
+      - LineCornor R1
+    - adjacent:
+      - Edge R3
+      - TopEdge R3
+      - Cornor R2
+      - Cornor R3
+      - CornorEdge R2
+      - CornorEdge R3
+      - OuterEmpty R0
+      - LineTop R1
+      - LineTop R3
+      - LineCornor R1
+      - LineCornor R2
+      - LineCornor R3
+      - LineCornorEdge R1
+      - LineCornorEdge R2
+      - LineCornorEdge R3
+      - LineEdge R1
+      - LineEdge R3
+      - SingleTop R0
+      - SingleEdge R0
+    - adjacent:
+      - OuterEmpty R0
+    - adjacent:
+      - Edge R2
+      - TopEdge R2
+      - Cornor R1
+      - Cornor R2
+      - CornorEdge R1
+      - CornorEdge R2
+      - OuterEmpty R0
+      - LineTop R0
+      - LineTop R2
+      - LineCornor R0
+      - LineCornor R1
+      - LineCornor R2
+      - LineCornorEdge R0
+      - LineCornorEdge R1
+      - LineCornorEdge R2
+      - LineEdge R0
+      - LineEdge R2
+      - SingleTop R0
+      - SingleEdge R0
+    rotation: 3
+    index: 26
+  - name: LineCornorEdge R0
+    prototype: {fileID: 4112985884443716405, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    prefab: {fileID: 4237589982628143113, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    possibleNeighbors:
+    - adjacent:
+      - LineCornorEdge R2
+      - LineEdge R0
+      - LineEdge R2
+    - adjacent:
+      - LineCornorEdge R0
+    - adjacent:
+      - Edge R0
+      - TopEdge R0
+      - Cornor R0
+      - Cornor R3
+      - CornorEdge R0
+      - CornorEdge R3
+      - OuterEmpty R0
+      - LineTop R0
+      - LineTop R2
+      - LineCornor R0
+      - LineCornor R2
+      - LineCornor R3
+      - LineCornorEdge R0
+      - LineCornorEdge R2
+      - LineCornorEdge R3
+      - LineEdge R0
+      - LineEdge R2
+      - SingleTop R0
+      - SingleEdge R0
+    - adjacent:
+      - Edge R3
+      - TopEdge R3
+      - Cornor R2
+      - Cornor R3
+      - CornorEdge R2
+      - CornorEdge R3
+      - OuterEmpty R0
+      - LineTop R1
+      - LineTop R3
+      - LineCornor R1
+      - LineCornor R2
+      - LineCornor R3
+      - LineCornorEdge R1
+      - LineCornorEdge R2
+      - LineCornorEdge R3
+      - LineEdge R1
+      - LineEdge R3
+      - SingleTop R0
+      - SingleEdge R0
+    - adjacent:
+      - LineCornor R0
+      - LineCornorEdge R0
+    - adjacent:
+      - Edge R2
+      - TopEdge R2
+      - Cornor R1
+      - Cornor R2
+      - CornorEdge R1
+      - CornorEdge R2
+      - OuterEmpty R0
+      - LineTop R0
+      - LineTop R2
+      - LineCornor R0
+      - LineCornor R1
+      - LineCornor R2
+      - LineCornorEdge R0
+      - LineCornorEdge R1
+      - LineCornorEdge R2
+      - LineEdge R0
+      - LineEdge R2
+      - SingleTop R0
+      - SingleEdge R0
+    rotation: 0
+    index: 27
+  - name: LineCornorEdge R1
+    prototype: {fileID: 4112985884443716405, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    prefab: {fileID: 4237589982628143113, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    possibleNeighbors:
+    - adjacent:
+      - Edge R1
+      - TopEdge R1
+      - Cornor R0
+      - Cornor R1
+      - CornorEdge R0
+      - CornorEdge R1
+      - OuterEmpty R0
+      - LineTop R1
+      - LineTop R3
+      - LineCornor R0
+      - LineCornor R1
+      - LineCornor R3
+      - LineCornorEdge R0
+      - LineCornorEdge R1
+      - LineCornorEdge R3
+      - LineEdge R1
+      - LineEdge R3
+      - SingleTop R0
+      - SingleEdge R0
+    - adjacent:
+      - LineCornorEdge R1
+    - adjacent:
+      - Edge R0
+      - TopEdge R0
+      - Cornor R0
+      - Cornor R3
+      - CornorEdge R0
+      - CornorEdge R3
+      - OuterEmpty R0
+      - LineTop R0
+      - LineTop R2
+      - LineCornor R0
+      - LineCornor R2
+      - LineCornor R3
+      - LineCornorEdge R0
+      - LineCornorEdge R2
+      - LineCornorEdge R3
+      - LineEdge R0
+      - LineEdge R2
+      - SingleTop R0
+      - SingleEdge R0
+    - adjacent:
+      - Edge R3
+      - TopEdge R3
+      - Cornor R2
+      - Cornor R3
+      - CornorEdge R2
+      - CornorEdge R3
+      - OuterEmpty R0
+      - LineTop R1
+      - LineTop R3
+      - LineCornor R1
+      - LineCornor R2
+      - LineCornor R3
+      - LineCornorEdge R1
+      - LineCornorEdge R2
+      - LineCornorEdge R3
+      - LineEdge R1
+      - LineEdge R3
+      - SingleTop R0
+      - SingleEdge R0
+    - adjacent:
+      - LineCornor R1
+      - LineCornorEdge R1
+    - adjacent:
+      - LineCornorEdge R3
+      - LineEdge R1
+      - LineEdge R3
+    rotation: 1
+    index: 28
+  - name: LineCornorEdge R2
+    prototype: {fileID: 4112985884443716405, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    prefab: {fileID: 4237589982628143113, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    possibleNeighbors:
+    - adjacent:
+      - Edge R1
+      - TopEdge R1
+      - Cornor R0
+      - Cornor R1
+      - CornorEdge R0
+      - CornorEdge R1
+      - OuterEmpty R0
+      - LineTop R1
+      - LineTop R3
+      - LineCornor R0
+      - LineCornor R1
+      - LineCornor R3
+      - LineCornorEdge R0
+      - LineCornorEdge R1
+      - LineCornorEdge R3
+      - LineEdge R1
+      - LineEdge R3
+      - SingleTop R0
+      - SingleEdge R0
+    - adjacent:
+      - LineCornorEdge R2
+    - adjacent:
+      - Edge R0
+      - TopEdge R0
+      - Cornor R0
+      - Cornor R3
+      - CornorEdge R0
+      - CornorEdge R3
+      - OuterEmpty R0
+      - LineTop R0
+      - LineTop R2
+      - LineCornor R0
+      - LineCornor R2
+      - LineCornor R3
+      - LineCornorEdge R0
+      - LineCornorEdge R2
+      - LineCornorEdge R3
+      - LineEdge R0
+      - LineEdge R2
+      - SingleTop R0
+      - SingleEdge R0
+    - adjacent:
+      - LineCornorEdge R0
+      - LineEdge R0
+      - LineEdge R2
+    - adjacent:
+      - LineCornor R2
+      - LineCornorEdge R2
+    - adjacent:
+      - Edge R2
+      - TopEdge R2
+      - Cornor R1
+      - Cornor R2
+      - CornorEdge R1
+      - CornorEdge R2
+      - OuterEmpty R0
+      - LineTop R0
+      - LineTop R2
+      - LineCornor R0
+      - LineCornor R1
+      - LineCornor R2
+      - LineCornorEdge R0
+      - LineCornorEdge R1
+      - LineCornorEdge R2
+      - LineEdge R0
+      - LineEdge R2
+      - SingleTop R0
+      - SingleEdge R0
+    rotation: 2
+    index: 29
+  - name: LineCornorEdge R3
+    prototype: {fileID: 4112985884443716405, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    prefab: {fileID: 4237589982628143113, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    possibleNeighbors:
+    - adjacent:
+      - Edge R1
+      - TopEdge R1
+      - Cornor R0
+      - Cornor R1
+      - CornorEdge R0
+      - CornorEdge R1
+      - OuterEmpty R0
+      - LineTop R1
+      - LineTop R3
+      - LineCornor R0
+      - LineCornor R1
+      - LineCornor R3
+      - LineCornorEdge R0
+      - LineCornorEdge R1
+      - LineCornorEdge R3
+      - LineEdge R1
+      - LineEdge R3
+      - SingleTop R0
+      - SingleEdge R0
+    - adjacent:
+      - LineCornorEdge R3
+    - adjacent:
+      - LineCornorEdge R1
+      - LineEdge R1
+      - LineEdge R3
+    - adjacent:
+      - Edge R3
+      - TopEdge R3
+      - Cornor R2
+      - Cornor R3
+      - CornorEdge R2
+      - CornorEdge R3
+      - OuterEmpty R0
+      - LineTop R1
+      - LineTop R3
+      - LineCornor R1
+      - LineCornor R2
+      - LineCornor R3
+      - LineCornorEdge R1
+      - LineCornorEdge R2
+      - LineCornorEdge R3
+      - LineEdge R1
+      - LineEdge R3
+      - SingleTop R0
+      - SingleEdge R0
+    - adjacent:
+      - LineCornor R3
+      - LineCornorEdge R3
+    - adjacent:
+      - Edge R2
+      - TopEdge R2
+      - Cornor R1
+      - Cornor R2
+      - CornorEdge R1
+      - CornorEdge R2
+      - OuterEmpty R0
+      - LineTop R0
+      - LineTop R2
+      - LineCornor R0
+      - LineCornor R1
+      - LineCornor R2
+      - LineCornorEdge R0
+      - LineCornorEdge R1
+      - LineCornorEdge R2
+      - LineEdge R0
+      - LineEdge R2
+      - SingleTop R0
+      - SingleEdge R0
+    rotation: 3
+    index: 30
+  - name: LineEdge R0
+    prototype: {fileID: 8684956317735688397, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    prefab: {fileID: 8571718204174350177, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    possibleNeighbors:
+    - adjacent:
+      - LineCornorEdge R2
+      - LineEdge R0
+      - LineEdge R2
+    - adjacent:
+      - LineEdge R0
+    - adjacent:
+      - Edge R0
+      - TopEdge R0
+      - Cornor R0
+      - Cornor R3
+      - CornorEdge R0
+      - CornorEdge R3
+      - OuterEmpty R0
+      - LineTop R0
+      - LineTop R2
+      - LineCornor R0
+      - LineCornor R2
+      - LineCornor R3
+      - LineCornorEdge R0
+      - LineCornorEdge R2
+      - LineCornorEdge R3
+      - LineEdge R0
+      - LineEdge R2
+      - SingleTop R0
+      - SingleEdge R0
+    - adjacent:
+      - LineCornorEdge R0
+      - LineEdge R0
+      - LineEdge R2
+    - adjacent:
+      - LineTop R0
+      - LineEdge R0
+    - adjacent:
+      - Edge R2
+      - TopEdge R2
+      - Cornor R1
+      - Cornor R2
+      - CornorEdge R1
+      - CornorEdge R2
+      - OuterEmpty R0
+      - LineTop R0
+      - LineTop R2
+      - LineCornor R0
+      - LineCornor R1
+      - LineCornor R2
+      - LineCornorEdge R0
+      - LineCornorEdge R1
+      - LineCornorEdge R2
+      - LineEdge R0
+      - LineEdge R2
+      - SingleTop R0
+      - SingleEdge R0
+    rotation: 0
+    index: 31
+  - name: LineEdge R1
+    prototype: {fileID: 8684956317735688397, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    prefab: {fileID: 8571718204174350177, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    possibleNeighbors:
+    - adjacent:
+      - Edge R1
+      - TopEdge R1
+      - Cornor R0
+      - Cornor R1
+      - CornorEdge R0
+      - CornorEdge R1
+      - OuterEmpty R0
+      - LineTop R1
+      - LineTop R3
+      - LineCornor R0
+      - LineCornor R1
+      - LineCornor R3
+      - LineCornorEdge R0
+      - LineCornorEdge R1
+      - LineCornorEdge R3
+      - LineEdge R1
+      - LineEdge R3
+      - SingleTop R0
+      - SingleEdge R0
+    - adjacent:
+      - LineEdge R1
+    - adjacent:
+      - LineCornorEdge R1
+      - LineEdge R1
+      - LineEdge R3
+    - adjacent:
+      - Edge R3
+      - TopEdge R3
+      - Cornor R2
+      - Cornor R3
+      - CornorEdge R2
+      - CornorEdge R3
+      - OuterEmpty R0
+      - LineTop R1
+      - LineTop R3
+      - LineCornor R1
+      - LineCornor R2
+      - LineCornor R3
+      - LineCornorEdge R1
+      - LineCornorEdge R2
+      - LineCornorEdge R3
+      - LineEdge R1
+      - LineEdge R3
+      - SingleTop R0
+      - SingleEdge R0
+    - adjacent:
+      - LineTop R1
+      - LineEdge R1
+    - adjacent:
+      - LineCornorEdge R3
+      - LineEdge R1
+      - LineEdge R3
+    rotation: 1
+    index: 32
+  - name: LineEdge R2
+    prototype: {fileID: 8684956317735688397, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    prefab: {fileID: 8571718204174350177, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    possibleNeighbors:
+    - adjacent:
+      - LineCornorEdge R2
+      - LineEdge R0
+      - LineEdge R2
+    - adjacent:
+      - LineEdge R2
+    - adjacent:
+      - Edge R0
+      - TopEdge R0
+      - Cornor R0
+      - Cornor R3
+      - CornorEdge R0
+      - CornorEdge R3
+      - OuterEmpty R0
+      - LineTop R0
+      - LineTop R2
+      - LineCornor R0
+      - LineCornor R2
+      - LineCornor R3
+      - LineCornorEdge R0
+      - LineCornorEdge R2
+      - LineCornorEdge R3
+      - LineEdge R0
+      - LineEdge R2
+      - SingleTop R0
+      - SingleEdge R0
+    - adjacent:
+      - LineCornorEdge R0
+      - LineEdge R0
+      - LineEdge R2
+    - adjacent:
+      - LineTop R2
+      - LineEdge R2
+    - adjacent:
+      - Edge R2
+      - TopEdge R2
+      - Cornor R1
+      - Cornor R2
+      - CornorEdge R1
+      - CornorEdge R2
+      - OuterEmpty R0
+      - LineTop R0
+      - LineTop R2
+      - LineCornor R0
+      - LineCornor R1
+      - LineCornor R2
+      - LineCornorEdge R0
+      - LineCornorEdge R1
+      - LineCornorEdge R2
+      - LineEdge R0
+      - LineEdge R2
+      - SingleTop R0
+      - SingleEdge R0
+    rotation: 2
+    index: 33
+  - name: LineEdge R3
+    prototype: {fileID: 8684956317735688397, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    prefab: {fileID: 8571718204174350177, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    possibleNeighbors:
+    - adjacent:
+      - Edge R1
+      - TopEdge R1
+      - Cornor R0
+      - Cornor R1
+      - CornorEdge R0
+      - CornorEdge R1
+      - OuterEmpty R0
+      - LineTop R1
+      - LineTop R3
+      - LineCornor R0
+      - LineCornor R1
+      - LineCornor R3
+      - LineCornorEdge R0
+      - LineCornorEdge R1
+      - LineCornorEdge R3
+      - LineEdge R1
+      - LineEdge R3
+      - SingleTop R0
+      - SingleEdge R0
+    - adjacent:
+      - LineEdge R3
+    - adjacent:
+      - LineCornorEdge R1
+      - LineEdge R1
+      - LineEdge R3
+    - adjacent:
+      - Edge R3
+      - TopEdge R3
+      - Cornor R2
+      - Cornor R3
+      - CornorEdge R2
+      - CornorEdge R3
+      - OuterEmpty R0
+      - LineTop R1
+      - LineTop R3
+      - LineCornor R1
+      - LineCornor R2
+      - LineCornor R3
+      - LineCornorEdge R1
+      - LineCornorEdge R2
+      - LineCornorEdge R3
+      - LineEdge R1
+      - LineEdge R3
+      - SingleTop R0
+      - SingleEdge R0
+    - adjacent:
+      - LineTop R3
+      - LineEdge R3
+    - adjacent:
+      - LineCornorEdge R3
+      - LineEdge R1
+      - LineEdge R3
+    rotation: 3
+    index: 34
+  - name: SingleTop R0
+    prototype: {fileID: 7199235263776621399, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    prefab: {fileID: 370802502811364897, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    possibleNeighbors:
+    - adjacent:
+      - Edge R1
+      - TopEdge R1
+      - Cornor R0
+      - Cornor R1
+      - CornorEdge R0
+      - CornorEdge R1
+      - OuterEmpty R0
+      - LineTop R1
+      - LineTop R3
+      - LineCornor R0
+      - LineCornor R1
+      - LineCornor R3
+      - LineCornorEdge R0
+      - LineCornorEdge R1
+      - LineCornorEdge R3
+      - LineEdge R1
+      - LineEdge R3
+      - SingleTop R0
+      - SingleEdge R0
+    - adjacent: []
+    - adjacent:
+      - Edge R0
+      - TopEdge R0
+      - Cornor R0
+      - Cornor R3
+      - CornorEdge R0
+      - CornorEdge R3
+      - OuterEmpty R0
+      - LineTop R0
+      - LineTop R2
+      - LineCornor R0
+      - LineCornor R2
+      - LineCornor R3
+      - LineCornorEdge R0
+      - LineCornorEdge R2
+      - LineCornorEdge R3
+      - LineEdge R0
+      - LineEdge R2
+      - SingleTop R0
+      - SingleEdge R0
+    - adjacent:
+      - Edge R3
+      - TopEdge R3
+      - Cornor R2
+      - Cornor R3
+      - CornorEdge R2
+      - CornorEdge R3
+      - OuterEmpty R0
+      - LineTop R1
+      - LineTop R3
+      - LineCornor R1
+      - LineCornor R2
+      - LineCornor R3
+      - LineCornorEdge R1
+      - LineCornorEdge R2
+      - LineCornorEdge R3
+      - LineEdge R1
+      - LineEdge R3
+      - SingleTop R0
+      - SingleEdge R0
+    - adjacent:
+      - OuterEmpty R0
+    - adjacent:
+      - Edge R2
+      - TopEdge R2
+      - Cornor R1
+      - Cornor R2
+      - CornorEdge R1
+      - CornorEdge R2
+      - OuterEmpty R0
+      - LineTop R0
+      - LineTop R2
+      - LineCornor R0
+      - LineCornor R1
+      - LineCornor R2
+      - LineCornorEdge R0
+      - LineCornorEdge R1
+      - LineCornorEdge R2
+      - LineEdge R0
+      - LineEdge R2
+      - SingleTop R0
+      - SingleEdge R0
+    rotation: 0
+    index: 35
+  - name: SingleEdge R0
+    prototype: {fileID: 8356757238960539355, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    prefab: {fileID: 4960652998947674674, guid: e372c84d4dd79d440a8dfe2052397f87, type: 3}
+    possibleNeighbors:
+    - adjacent:
+      - Edge R1
+      - TopEdge R1
+      - Cornor R0
+      - Cornor R1
+      - CornorEdge R0
+      - CornorEdge R1
+      - OuterEmpty R0
+      - LineTop R1
+      - LineTop R3
+      - LineCornor R0
+      - LineCornor R1
+      - LineCornor R3
+      - LineCornorEdge R0
+      - LineCornorEdge R1
+      - LineCornorEdge R3
+      - LineEdge R1
+      - LineEdge R3
+      - SingleTop R0
+      - SingleEdge R0
+    - adjacent: []
+    - adjacent:
+      - Edge R0
+      - TopEdge R0
+      - Cornor R0
+      - Cornor R3
+      - CornorEdge R0
+      - CornorEdge R3
+      - OuterEmpty R0
+      - LineTop R0
+      - LineTop R2
+      - LineCornor R0
+      - LineCornor R2
+      - LineCornor R3
+      - LineCornorEdge R0
+      - LineCornorEdge R2
+      - LineCornorEdge R3
+      - LineEdge R0
+      - LineEdge R2
+      - SingleTop R0
+      - SingleEdge R0
+    - adjacent:
+      - Edge R3
+      - TopEdge R3
+      - Cornor R2
+      - Cornor R3
+      - CornorEdge R2
+      - CornorEdge R3
+      - OuterEmpty R0
+      - LineTop R1
+      - LineTop R3
+      - LineCornor R1
+      - LineCornor R2
+      - LineCornor R3
+      - LineCornorEdge R1
+      - LineCornorEdge R2
+      - LineCornorEdge R3
+      - LineEdge R1
+      - LineEdge R3
+      - SingleTop R0
+      - SingleEdge R0
+    - adjacent:
+      - Top R0
+      - InnerEmpty R0
+    - adjacent:
+      - Edge R2
+      - TopEdge R2
+      - Cornor R1
+      - Cornor R2
+      - CornorEdge R1
+      - CornorEdge R2
+      - OuterEmpty R0
+      - LineTop R0
+      - LineTop R2
+      - LineCornor R0
+      - LineCornor R1
+      - LineCornor R2
+      - LineCornorEdge R0
+      - LineCornorEdge R1
+      - LineCornorEdge R2
+      - LineEdge R0
+      - LineEdge R2
+      - SingleTop R0
+      - SingleEdge R0
+    rotation: 0
+    index: 36
