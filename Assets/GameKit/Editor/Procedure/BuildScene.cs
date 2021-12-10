@@ -1,3 +1,5 @@
+#if UNITY_EDITOR
+
 using UnityEngine;
 using System.IO;
 using UnityEditor;
@@ -43,3 +45,5 @@ public class BuildScene : Editor
         EditorBuildSettings.scenes = scenes;
     }
 }
+
+#endif

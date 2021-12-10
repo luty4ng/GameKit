@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -15,6 +16,7 @@ public static class UpdateSceneList
     {
         string scenesMenuPath = Path.Combine(Application.dataPath, scriptPath);
         StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.AppendLine("#if UNITY_EDITOR");
         stringBuilder.AppendLine("using UnityEditor;");
         stringBuilder.AppendLine("using UnityEditor.SceneManagement;");
         stringBuilder.AppendLine("public static class ScenesList");
@@ -29,6 +31,7 @@ public static class UpdateSceneList
             stringBuilder.AppendLine(string.Format("    public static void {0}() {{ UpdateSceneList.OpenScene(\"{1}\"); }}", methodName, scenePath));
         }
         stringBuilder.AppendLine("}");
+        stringBuilder.AppendLine("#endif");
         Directory.CreateDirectory(Path.GetDirectoryName(scriptPath));
         File.WriteAllText(scenesMenuPath, stringBuilder.ToString());
         AssetDatabase.Refresh();
@@ -52,3 +55,4 @@ public static class UpdateSceneList
 
     }
 }
+#endif

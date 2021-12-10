@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using UnityEditor;
 using UnityEditor.SceneManagement;
 public static class ScenesList
@@ -25,3 +26,4 @@ public static class ScenesList
     [MenuItem("Scenes/Demo_TopdownMove")]
     public static void Assets_GameKit_Features_TopdownMove_Scene_Demo_TopdownMove_unity() { UpdateSceneList.OpenScene("Assets/GameKit/Features/TopdownMove/Scene/Demo_TopdownMove.unity"); }
 }
+#endif

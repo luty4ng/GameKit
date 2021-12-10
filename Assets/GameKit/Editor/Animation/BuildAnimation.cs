@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using UnityEditor;
 using UnityEngine;
 using System.IO;
@@ -71,3 +72,4 @@ public static class ReverseAnimationContext
         return null;
     }
 }
+#endif
