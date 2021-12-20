@@ -6,23 +6,17 @@ using GameKit;
 
 namespace GameKit
 {
-    public class GameManager : MonoBehaviour
+    public class GameController : SingletonMonoBase<GameController>
     {
         public Dictionary<string, Object> regisCenter;
-        public static GameManager instance { get; private set; }
-
-        private void Awake()
-        {
-            if (instance == null)
-                instance = this;
-            Application.targetFrameRate = 60;
-
-        }
-
         public void ClearAllManager()
         {
             PoolManager.instance.Clear();
-            EventCenter.instance.Clear();
+            EventManager.instance.Clear();
+        }
+        protected override void OnAwake()
+        {
+            
         }
 
         private void OnDestroy()

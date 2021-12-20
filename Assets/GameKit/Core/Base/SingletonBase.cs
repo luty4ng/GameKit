@@ -5,8 +5,7 @@ using GameKit;
 
 namespace GameKit
 {
-    public interface IBaseManager { }
-    public class BaseManager<T> : IBaseManager where T : new()
+    public abstract class SingletonBase<T> where T : new()
     {
         private static T Instance;
         public static T instance
@@ -16,7 +15,7 @@ namespace GameKit
                 if (Instance == null)
                 {
                     Instance = new T();
-                    CoreManager.RegisterManager(Instance as IBaseManager);
+                    GameKitManager.RegisterManager(Instance as IBaseManager);
                 }
                 return Instance;
             }

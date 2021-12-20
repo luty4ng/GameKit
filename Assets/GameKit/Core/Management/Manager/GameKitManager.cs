@@ -5,7 +5,11 @@ using GameKit;
 
 namespace GameKit
 {
-    public class CoreManager : MonoBehaviour
+    public interface IBaseManager
+    {
+        bool isActive { get; set; }
+    }
+    public static class GameKitManager
     {
         [SerializeField] public static List<IBaseManager> managers;
 
@@ -22,9 +26,22 @@ namespace GameKit
                 managers.Remove(manager);
         }
 
+        public static void EnableAll()
+        {
+            for (int i = 0; i < managers.Count; i++)
+            {
+                // managers[i].
+            }
+        }
+
+        public static void DisenableAll()
+        {
+
+        }
+
         public static void Clear()
         {
-            if(managers != null)
+            if (managers != null)
                 managers.Clear();
         }
     }

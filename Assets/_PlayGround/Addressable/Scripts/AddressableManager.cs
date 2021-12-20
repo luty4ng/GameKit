@@ -9,7 +9,7 @@ using GameKit;
 
 namespace GameKit
 {
-    public class AddressableManager : BaseManager<AddressableManager>
+    public class AddressableManager : SingletonBase<AddressableManager>
     {
         private List<AssetReference> assetList;
         public AddressableManager()

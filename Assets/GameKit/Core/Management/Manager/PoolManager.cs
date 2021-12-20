@@ -36,7 +36,7 @@ namespace GameKit
         }
     }
 
-    public class PoolManager : BaseManager<PoolManager>
+    public class PoolManager : SingletonBase<PoolManager>
     {
         private Dictionary<string, PoolData> pool = new Dictionary<string, PoolData>();
         private GameObject poolObj;

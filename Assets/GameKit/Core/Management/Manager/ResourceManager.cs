@@ -5,7 +5,7 @@ using UnityEngine.Events;
 using GameKit;
 namespace GameKit
 {
-    public class ResourceManager : BaseManager<ResourceManager>
+    public class ResourceManager : SingletonBase<ResourceManager>
     {
 
         public T Load<T>(string name) where T : Object

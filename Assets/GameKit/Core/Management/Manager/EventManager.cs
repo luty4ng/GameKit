@@ -24,7 +24,7 @@ namespace GameKit
             actions += action;
         }
     }
-    public class EventCenter : BaseManager<EventCenter>
+    public class EventManager : SingletonBase<EventManager>
     {
 
         private Dictionary<string, IEventInfo> events = new Dictionary<string, IEventInfo>();

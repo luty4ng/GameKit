@@ -1,13 +1,13 @@
 namespace GameKit
 {
-    public abstract class Command<Target>
+    public abstract class CommandBase<T>
     {
-        protected readonly Target target;
-        protected Command()
+        protected readonly T target;
+        protected CommandBase()
         {
-            this.target = default(Target);
+            this.target = default(T);
         }
-        protected Command(Target target)
+        protected CommandBase(T target)
         {
             this.target = target;
         }

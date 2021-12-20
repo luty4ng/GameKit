@@ -68,7 +68,7 @@ public class RuleTileGenerator : MonoBehaviour
             GenerateLandform();
             // GenerateCrack();
         }
-        EventCenter.instance.EventTrigger("UpdateOxygenMap");
+        EventManager.instance.EventTrigger("UpdateOxygenMap");
     }
     private void Start()
     {

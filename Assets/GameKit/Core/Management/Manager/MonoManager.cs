@@ -6,7 +6,7 @@ using GameKit;
 
 namespace GameKit
 {
-    public class MonoManager : BaseManager<MonoManager>
+    public class MonoManager : SingletonBase<MonoManager>
     {
         public MonoController controller;
         public Dictionary<string, GameObject> globalObjects;

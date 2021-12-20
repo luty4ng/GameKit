@@ -4,8 +4,8 @@ public class EventListener : MonoBehaviour
 {
     private void Start()
     {
-        EventCenter.instance.AddEventListener("EventA",()=>{});
-        EventCenter.instance.AddEventListener("EventB",()=>{});
-        EventCenter.instance.AddEventListener("EventC",()=>{});
+        EventManager.instance.AddEventListener("EventA",()=>{});
+        EventManager.instance.AddEventListener("EventB",()=>{});
+        EventManager.instance.AddEventListener("EventC",()=>{});
     }
 }

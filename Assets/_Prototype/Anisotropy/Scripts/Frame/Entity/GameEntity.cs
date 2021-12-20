@@ -30,7 +30,7 @@ public abstract class GameEntity : MonoBehaviour, ITimeReactable
         currentFrame = 0;
         frameData = new List<FrameData>();
         TimeManager.instance.AddEntity(this);
-        EventCenter.instance.AddEventListener(EventConfig.TimeChange.ToString(), () =>
+        EventManager.instance.AddEventListener(EventConfig.TimeChange.ToString(), () =>
         {
             if (timeReactable == false)
                 return;

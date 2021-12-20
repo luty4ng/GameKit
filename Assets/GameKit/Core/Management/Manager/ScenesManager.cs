@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 using GameKit;
 namespace GameKit
 {
-    public class ScenesManager : BaseManager<ScenesManager>
+    public class ScenesManager : SingletonBase<ScenesManager>
     {
         // 场景加载 同步
         public Scene GetScene()
@@ -40,7 +40,7 @@ namespace GameKit
 
             while (!ao.isDone)
             {
-                EventCenter.instance.EventTrigger("Loading Scene", ao.progress);
+                EventManager.instance.EventTrigger("Loading Scene", ao.progress);
                 yield return ao.progress;
             }
             callback?.Invoke();
@@ -51,7 +51,7 @@ namespace GameKit
             AsyncOperation ao = SceneManager.LoadSceneAsync(name, LoadSceneMode.Additive);
             while (!ao.isDone)
             {
-                EventCenter.instance.EventTrigger("Loading Scene", ao.progress);
+                EventManager.instance.EventTrigger("Loading Scene", ao.progress);
                 yield return ao.progress;
             }
             callback?.Invoke();
@@ -62,7 +62,7 @@ namespace GameKit
             AsyncOperation ao = SceneManager.UnloadSceneAsync(name);
             while (!ao.isDone)
             {
-                EventCenter.instance.EventTrigger("Removing Scene", ao.progress);
+                EventManager.instance.EventTrigger("Removing Scene", ao.progress);
                 yield return ao.progress;
             }
             callback?.Invoke();

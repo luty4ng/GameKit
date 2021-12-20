@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 namespace GameKit
 {
-    public class UIManager : BaseManager<UIManager>
+    public class UIManager : SingletonBase<UIManager>
     {
         public Dictionary<string, BasePanelUI> panels = new Dictionary<string, BasePanelUI>();
         public void ShowPanel<T>(string panelName, UnityAction<T> callback = null) where T : BasePanelUI

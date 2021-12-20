@@ -10,7 +10,7 @@ namespace GameKit
     public delegate void JsonAction();
     public interface IJsonTask { }
 
-    public class JsonManager : BaseManager<JsonManager>
+    public class JsonManager : SingletonBase<JsonManager>
     {
         public List<JsonTasks> jsonTasks;
 

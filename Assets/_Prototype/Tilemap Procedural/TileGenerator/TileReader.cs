@@ -27,7 +27,7 @@ public class TileReader : MonoBehaviour
     {
         Clear();
         LoadModule();
-        EventCenter.instance.EventTrigger("RescanAstarMap");
+        EventManager.instance.EventTrigger("RescanAstarMap");
     }
 
     public void Clear()

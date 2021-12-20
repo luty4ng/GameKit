@@ -1,4 +1,4 @@
-### A Unity framework for my daily development
+### A small Unity framework for gamedev
 
 Singleton
 - InputManager
@@ -9,13 +9,4 @@ Singleton
 - ScenesManager
 - ResourceManager
 - AudioManager
-
-AI
-- StateMachine
-
-UI
-- PausePanel
-
-Gameplay
-- TopDownMoving
 

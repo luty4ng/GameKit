@@ -5,7 +5,7 @@ using UnityEngine.Events;
 using GameKit;
 namespace GameKit
 {
-    public class AudioManager : BaseManager<AudioManager>
+    public class AudioManager : SingletonBase<AudioManager>
     {
         private AudioSource BGM = null;
         public float BGMVolume = 1;

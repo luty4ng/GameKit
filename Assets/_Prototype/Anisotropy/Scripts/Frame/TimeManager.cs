@@ -112,7 +112,7 @@ public class TimeManager : MonoBehaviour
 
     public void TimeTrigger()
     {
-        EventCenter.instance.EventTrigger(EventConfig.TimeChange.ToString());
+        EventManager.instance.EventTrigger(EventConfig.TimeChange.ToString());
         if (tempCommandSet == null)
             tempCommandSet = new CommandSet();
         tempCommandSet.Clear();

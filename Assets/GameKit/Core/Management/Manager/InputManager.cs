@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace GameKit
 {
-    public class InputManager : BaseManager<InputManager>
+    public class InputManager : SingletonBase<InputManager>
 {
     private bool isActive = false;
     private InputManager inputManager;
@@ -63,11 +63,11 @@ namespace GameKit
     {
         if (Input.GetKeyDown(key))
         {
-            EventCenter.instance.EventTrigger("KeyDown", key);
+            EventManager.instance.EventTrigger("KeyDown", key);
         }
         if (Input.GetKeyUp(key))
         {
-            EventCenter.instance.EventTrigger("KeyUp", key);
+            EventManager.instance.EventTrigger("KeyUp", key);
         }
     }
 
@@ -75,30 +75,30 @@ namespace GameKit
     {
         if (Input.GetKeyDown(key))
         {
-            EventCenter.instance.EventTrigger("KeyDown", key);
+            EventManager.instance.EventTrigger("KeyDown", key);
         }
         if (Input.GetKeyUp(key))
         {
-            EventCenter.instance.EventTrigger("KeyUp", key);
+            EventManager.instance.EventTrigger("KeyUp", key);
         }
     }
 
     private void CheckButton(String name, String target)
     {
         if (Input.GetButtonDown(name))
-            EventCenter.instance.EventTrigger(target + "ButtonDown", name);
+            EventManager.instance.EventTrigger(target + "ButtonDown", name);
 
         if (Input.GetButtonUp(name))
-            EventCenter.instance.EventTrigger(target + "ButtonUp", name);
+            EventManager.instance.EventTrigger(target + "ButtonUp", name);
     }
 
     private void CheckButton(String name)
     {
         if (Input.GetButtonDown(name))
-            EventCenter.instance.EventTrigger("ButtonDown", name);
+            EventManager.instance.EventTrigger("ButtonDown", name);
 
         if (Input.GetButtonUp(name))
-            EventCenter.instance.EventTrigger("ButtonUp", name);
+            EventManager.instance.EventTrigger("ButtonUp", name);
     }
 
     private void CheckAxis()
@@ -106,7 +106,7 @@ namespace GameKit
         float Horizontal = Input.GetAxis("Horizontal");
         float Vertical = Input.GetAxis("Vertical");
         (float, float) Axis = (Horizontal, Vertical);
-        EventCenter.instance.EventTrigger<(float, float)>("Axis", Axis);
+        EventManager.instance.EventTrigger<(float, float)>("Axis", Axis);
     }
 
     private void CheckAxis(String target)
@@ -114,7 +114,7 @@ namespace GameKit
         float Horizontal = Input.GetAxis("Horizontal");
         float Vertical = Input.GetAxis("Vertical");
         (float, float) Axis = (Horizontal, Vertical);
-        EventCenter.instance.EventTrigger<(float, float)>(target + "Axis", Axis);
+        EventManager.instance.EventTrigger<(float, float)>(target + "Axis", Axis);
     }
 
     private void CheckAxisRaw()
@@ -122,7 +122,7 @@ namespace GameKit
         float Horizontal = Input.GetAxisRaw("Horizontal");
         float Vertical = Input.GetAxisRaw("Vertical");
         (float, float) AxisRaw = (Horizontal, Vertical);
-        EventCenter.instance.EventTrigger<(float, float)>("AxisRaw", AxisRaw);
+        EventManager.instance.EventTrigger<(float, float)>("AxisRaw", AxisRaw);
     }
 
     private void CheckAxisRaw(String target)
@@ -130,7 +130,7 @@ namespace GameKit
         float Horizontal = Input.GetAxisRaw("Horizontal");
         float Vertical = Input.GetAxisRaw("Vertical");
         (float, float) AxisRaw = (Horizontal, Vertical);
-        EventCenter.instance.EventTrigger<(float, float)>(target + "AxisRaw", AxisRaw);
+        EventManager.instance.EventTrigger<(float, float)>(target + "AxisRaw", AxisRaw);
     }
 
     private void MyUpdate()
