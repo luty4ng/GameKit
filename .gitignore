@@ -17,10 +17,10 @@
 # /[Aa]ssets/AssetStoreTools*
 
 # _Prototype
-Assets/_Prototype/
+# Assets/_Prototype/
 
 # _PlayGround
-Assets/_PlayGround/
+# Assets/_PlayGround/
 
 # UnityGameFramework
 [Aa]ssets/UnityGameFramework/
