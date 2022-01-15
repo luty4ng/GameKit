@@ -34,6 +34,11 @@ namespace GameKit
             MonoManager.instance.StartCoroutine(UnloadSceneAsyncIE(name, callback));
         }
 
+        public void TryGetScene(string name, out Scene scene)
+        {
+            scene = SceneManager.GetSceneByName(name);
+        }
+
         IEnumerator LoadSceneAsynIE(string name, UnityAction callback)
         {
             AsyncOperation ao = SceneManager.LoadSceneAsync(name);

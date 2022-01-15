@@ -1,4 +1,4 @@
-### A small Unity framework for gamedev
+### A small Unity kit for rapid game prototyping
 
 Singleton
 - InputManager
