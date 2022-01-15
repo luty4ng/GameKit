@@ -7,16 +7,16 @@ using UnityEditor;
 [CustomEditor(typeof(ScenesBuild))]
 public class ScenesBuild : Editor
 {
-    [MenuItem("SceneManagement/ScenesBuild-Main")]
-    static void BuildMainScene()
+    [MenuItem(ScenesConfig.EditorTitle + "ScenesBuild-All")]
+    static void BuildAllScene()
     {
-        string[] files = AssetDatabase.FindAssets("t:Scene", new string[] { "Assets/GameMain/Scenes" });
+        string[] files = AssetDatabase.FindAssets("t:Scene", new string[] { ScenesConfig.RootPath });
         EditorBuildSettingsScene[] scenes = new EditorBuildSettingsScene[files.Length];
         for (int i = 0; i < files.Length; ++i)
         {
             files[i] = AssetDatabase.GUIDToAssetPath(files[i]);
             scenes[i] = new EditorBuildSettingsScene(files[i], true);
-            if (i > 0 && Path.GetFileNameWithoutExtension(files[i]) == ScenesConfig.procedureScene)
+            if (i > 0 && Path.GetFileNameWithoutExtension(files[i]) == ScenesConfig.ProcedureScene)
             {
                 var temp = scenes[0];
                 scenes[0] = scenes[i];
@@ -26,16 +26,16 @@ public class ScenesBuild : Editor
         EditorBuildSettings.scenes = scenes;
     }
 
-    [MenuItem("SceneManagement/ScenesBuild-All")]
-    static void BuildAllScene()
+    [MenuItem(ScenesConfig.EditorTitle + "ScenesBuild-Main")]
+    static void BuildMainScene()
     {
-        string[] files = AssetDatabase.FindAssets("t:Scene", new string[] { "Assets" });
+        string[] files = AssetDatabase.FindAssets("t:Scene", new string[] { ScenesConfig.MainPath });
         EditorBuildSettingsScene[] scenes = new EditorBuildSettingsScene[files.Length];
         for (int i = 0; i < files.Length; ++i)
         {
             files[i] = AssetDatabase.GUIDToAssetPath(files[i]);
             scenes[i] = new EditorBuildSettingsScene(files[i], true);
-            if (i > 0 && Path.GetFileNameWithoutExtension(files[i]) ==  ScenesConfig.procedureScene)
+            if (i > 0 && Path.GetFileNameWithoutExtension(files[i]) == ScenesConfig.ProcedureScene)
             {
                 var temp = scenes[0];
                 scenes[0] = scenes[i];

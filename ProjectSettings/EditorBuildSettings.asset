@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_PlayGround/Addressable/Scenes/Addressable.unity
-    guid: bd9f99d6e85ba00458d8b4171241cb8d
+    path: Assets/GameKit/Prototype/Scenes/Procedure/S_Procedure.unity
+    guid: 6d652a1357b896648a2614563c4ddace
   - enabled: 1
     path: Assets/_PlayGround/Attributes/Attributes.unity
     guid: 622a6499ef8f90f4098763d861b3d4e2
@@ -33,12 +33,18 @@ EditorBuildSettings:
     path: Assets/_Prototype/GameFramework_Test/GameFramework_Test.unity
     guid: 7157ce46b7bb6724bb18c25cd48de3e2
   - enabled: 1
-    path: Assets/GameKit/Externals/Modern UI Pack/Scenes/Demo.unity
-    guid: ac2a90141e0c9e94a9da39fbf04d5580
+    path: Assets/_Prototype/Reseter/Scenes/Reseter.unity
+    guid: 1fbe210cbbdb4ad42af3fc0c712b9ea6
   - enabled: 1
     path: Assets/GameKit/Core/UGUI/Demo/Demo_UI.unity
     guid: 2abebf3f9f5a3564780ebfc27ace7e36
   - enabled: 1
-    path: Assets/GameKit/Prototype/CharacterControl/TopdownMove/Scene/Demo_TopdownMove.unity
-    guid: 1beb8c4e8c3a18948923435210f20fda
+    path: Assets/GameKit/Prototype/Scenes/Procedure/S_Menu.unity
+    guid: b9374986be6e4c8488c8121429dceaee
+  - enabled: 1
+    path: Assets/_PlayGround/Addressable/Scenes/Addressable.unity
+    guid: bd9f99d6e85ba00458d8b4171241cb8d
+  - enabled: 1
+    path: Assets/GameKit/Prototype/Scenes/Procedure/S_Select.unity
+    guid: bcdda5d18c5adb4479cd62d5099139c2
   m_configObjects: {}
