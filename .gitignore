@@ -17,13 +17,10 @@
 # /[Aa]ssets/AssetStoreTools*
 
 # _Prototype
-[Aa]ssets/_Prototype/
+Assets/_Prototype/
 
 # _PlayGround
-[Aa]ssets/_PlayGround/
-
-# TextMesh Pro files
-[Aa]ssets/TextMesh*Pro/
+Assets/_PlayGround/
 
 # UnityGameFramework
 [Aa]ssets/UnityGameFramework/
