@@ -98,7 +98,7 @@ namespace GameKit
                 return new Dictionary<Key, Value>();
             string dataAsJson = File.ReadAllText(filePath);
 
-            Dictionary<Key, Value> loadData = JsonUtility.FromJson<Serialization<Key, Value>>(dataAsJson).ToDictionary();
+            Dictionary<Key, Value> loadData = JsonUtility.FromJson<SerializedDictionary<Key, Value>>(dataAsJson).ToDictionary();
             return loadData;
         }
 
@@ -133,7 +133,7 @@ namespace GameKit
                 File.Delete(filePath);
             File.Create(filePath).Dispose();
 
-            string jsonData = JsonUtility.ToJson(new Serialization<Key, Value>(dicData));
+            string jsonData = JsonUtility.ToJson(new SerializedDictionary<Key, Value>(dicData));
             File.WriteAllText(filePath, jsonData);
         }
 

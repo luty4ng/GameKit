@@ -15,7 +15,6 @@ namespace GameKit
                 if (Instance == null)
                 {
                     Instance = new T();
-                    GameKitManager.RegisterManager(Instance as IBaseManager);
                 }
                 return Instance;
             }

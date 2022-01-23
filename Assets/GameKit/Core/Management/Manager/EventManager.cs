@@ -14,6 +14,31 @@ namespace GameKit
         {
             actions += action;
         }
+        public void Clear()
+        {
+            System.Delegate[] acts = actions.GetInvocationList();
+            for (int i = 0; i < acts.Length; i++)
+            {
+                actions -= acts[i] as UnityAction<T>;
+            }
+        }
+    }
+
+    public class EventInfo<T0, T1> : IEventInfo
+    {
+        public UnityAction<T0, T1> actions;
+        public EventInfo(UnityAction<T0, T1> action)
+        {
+            actions += action;
+        }
+        public void Clear()
+        {
+            System.Delegate[] acts = actions.GetInvocationList();
+            for (int i = 0; i < acts.Length; i++)
+            {
+                actions -= acts[i] as UnityAction<T0, T1>;
+            }
+        }
     }
 
     public class EventInfo : IEventInfo
@@ -22,6 +47,14 @@ namespace GameKit
         public EventInfo(UnityAction action)
         {
             actions += action;
+        }
+        public void Clear()
+        {
+            System.Delegate[] acts = actions.GetInvocationList();
+            for (int i = 0; i < acts.Length; i++)
+            {
+                actions -= acts[i] as UnityAction;
+            }
         }
     }
     public class EventManager : SingletonBase<EventManager>
@@ -40,6 +73,18 @@ namespace GameKit
             }
         }
 
+        public void AddEventListener<T0, T1>(string name, UnityAction<T0, T1> action)
+        {
+            if (events.ContainsKey(name))
+            {
+                (events[name] as EventInfo<T0, T1>).actions += action;
+            }
+            else
+            {
+                events.Add(name, new EventInfo<T0, T1>(action));
+            }
+        }
+
         public void AddEventListener(string name, UnityAction action)
         {
             if (events.ContainsKey(name))
@@ -55,19 +100,28 @@ namespace GameKit
 
         public void EventTrigger<T>(string name, T info)
         {
-            // 在这个函数里可以处理传参信息 info
             if (events.ContainsKey(name))
             {
                 if ((events[name] as EventInfo<T>).actions != null)
                 {
-                    (events[name] as EventInfo<T>).actions.Invoke(info);
+                    (events[name] as EventInfo<T>).actions?.Invoke(info);
+                }
+            }
+        }
+
+        public void EventTrigger<T0, T1>(string name, T0 info1, T1 info2)
+        {
+            if (events.ContainsKey(name))
+            {
+                if ((events[name] as EventInfo<T0, T1>).actions != null)
+                {
+                    (events[name] as EventInfo<T0, T1>).actions?.Invoke(info1, info2);
                 }
             }
         }
 
         public void EventTrigger(string name)
         {
-            // 在这个函数里可以处理传参信息 info
             if (events.ContainsKey(name))
             {
                 if ((events[name] as EventInfo).actions != null)
@@ -85,11 +139,43 @@ namespace GameKit
             }
         }
 
+        public void RemoveEventListener<T0, T1>(string name, UnityAction<T0, T1> action)
+        {
+            if (events.ContainsKey(name))
+            {
+                (events[name] as EventInfo<T0, T1>).actions -= action;
+            }
+        }
+
         public void RemoveEventListener(string name, UnityAction action)
         {
             if (events.ContainsKey(name))
             {
                 (events[name] as EventInfo).actions -= action;
+            }
+        }
+
+        public void ClearEventListener(string name)
+        {
+            if (events.ContainsKey(name))
+            {
+                (events[name] as EventInfo).Clear();
+            }
+        }
+
+        public void ClearEventListener<T>(string name)
+        {
+            if (events.ContainsKey(name))
+            {
+                (events[name] as EventInfo<T>).Clear();
+            }
+        }
+
+        public void ClearEventListener<T0, T1>(string name)
+        {
+            if (events.ContainsKey(name))
+            {
+                (events[name] as EventInfo<T0, T1>).Clear();
             }
         }
         public void Clear()

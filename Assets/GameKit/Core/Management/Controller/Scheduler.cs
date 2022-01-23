@@ -7,7 +7,6 @@ using DG.Tweening;
 
 namespace GameKit
 {
-
     public class Scheduler : MonoBehaviour
     {
         public enum SceneSwitchType
@@ -18,6 +17,7 @@ namespace GameKit
         }
         public static Scheduler instance;
         public string startScene = "S_Menu";
+        public Animator animator;
         private string loadingScene = "S_Loading";
         public string currentScene { get; private set; }
         private Transform swipePanel;
@@ -33,16 +33,19 @@ namespace GameKit
 
         public void SwitchSceneSwipe(string name, UnityAction callback = null)
         {
-            string previousScene = currentScene;
+            animator.SetTrigger("Move");
             swipePanel.DOLocalMoveX(0, 0.5f).OnComplete(() =>
             {
                 LoadSceneAsyn(name, () =>
                 {
+                    string tmpScene = currentScene;
                     currentScene = name;
-                    UnloadSceneAsyn(previousScene, ()=>{
-                        swipePanel.DOLocalMoveX(-1920, 0.5f).OnComplete(() =>
+                    UnloadSceneAsyn(tmpScene, () =>
+                    {
+                        swipePanel.DOLocalMoveX(-2420f, 0.5f).OnComplete(() =>
                         {
-                            swipePanel.localPosition = new Vector3(1920, swipePanel.localPosition.y, swipePanel.localPosition.z);
+                            animator.SetTrigger("DeMove");
+                            swipePanel.localPosition = new Vector3(2420f, swipePanel.localPosition.y, swipePanel.localPosition.z);
                         });
                     });
                 });
@@ -51,11 +54,29 @@ namespace GameKit
 
         public void SwitchScene(string name, UnityAction callback = null)
         {
-            string previousScene = currentScene;
             LoadSceneAsyn(name, () =>
             {
                 currentScene = name;
-                UnloadSceneAsyn(previousScene);
+                UnloadSceneAsyn(currentScene);
+            });
+        }
+
+        public void ReloadCurrentSceneSwipe()
+        {
+            animator.SetTrigger("Move");
+            swipePanel.DOLocalMoveX(0, 0.5f).OnComplete(() =>
+            {
+                UnloadSceneAsyn(currentScene, () =>
+                {
+                    LoadSceneAsyn(currentScene, () =>
+                    {
+                        animator.SetTrigger("DeMove");
+                        swipePanel.DOLocalMoveX(-2420f, 0.5f).OnComplete(() =>
+                        {
+                            swipePanel.localPosition = new Vector3(2420f, swipePanel.localPosition.y, swipePanel.localPosition.z);
+                        });
+                    });
+                });
             });
         }
 
@@ -73,6 +94,10 @@ namespace GameKit
         private void LoadSceneAsyn(string name, UnityAction callback = null)
         {
             ScenesManager.instance.LoadSceneAsynAdd(name, callback);
+        }
+        private void LoadSceneAsynSingle(string name, UnityAction callback = null)
+        {
+            ScenesManager.instance.LoadSceneAsyn(name, callback);
         }
         private void UnloadSceneAsyn(string name, UnityAction callback = null)
         {
@@ -94,6 +119,4 @@ namespace GameKit
             return 0;
         }
     }
-
 }
-
