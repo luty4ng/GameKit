@@ -25,6 +25,22 @@ namespace GameKit
             }
         }
 
+        public LinkedListNode<T> First
+        {
+            get
+            {
+                return linkedList.First;
+            }
+        }
+
+        public LinkedListNode<T> Last
+        {
+            get
+            {
+                return linkedList.Last;
+            }
+        }
+
         public bool IsSynchronized
         {
             get
