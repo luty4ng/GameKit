@@ -18,9 +18,10 @@
 
 # _Prototype
 [Aa]ssets/_Prototype/
-
+[Aa]ssets/_Prototype.meta
 # _PlayGround
 [Aa]ssets/_PlayGround/
+[Aa]ssets/_PlayGround.meta
 
 # UnityGameFramework
 [Aa]ssets/UnityGameFramework/
