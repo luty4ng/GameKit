@@ -178,7 +178,7 @@ namespace GameKit
                 (events[name] as EventInfo<T0, T1>).Clear();
             }
         }
-        public void Clear()
+        public override void Clear()
         {
             events.Clear();
         }

@@ -6,28 +6,28 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/GameKit/Prototype/Procedure/Scnes/S_Procedure.unity
+    path: Assets/GameKit/Procedure/Demo/GameKit_Launcher.unity
     guid: 6d652a1357b896648a2614563c4ddace
   - enabled: 1
-    path: Assets/GameKit/Prototype/Attributes/Attributes.unity
+    path: Assets/_Tutorials/Attributes/Attributes.unity
     guid: 622a6499ef8f90f4098763d861b3d4e2
   - enabled: 1
-    path: Assets/GameKit/Prototype/MyDotween/MyDotween.unity
+    path: Assets/_Tutorials/MyDotween/MyDotween.unity
     guid: 9643525deaaf5a94f877d46d998128c1
   - enabled: 1
     path: Assets/GameKit/Prototype/ShaderAssets/ShaderGround.unity
     guid: 4173f7413fd74974f924a5c1da46d7d8
   - enabled: 1
-    path: Assets/_Prototype/Anisotropy/Basic.unity
+    path: Assets/GamePrototype/Legacy/Anisotropy/Basic.unity
     guid: 2f1bc055c6b55a14a8251e1ff8ea16e1
   - enabled: 1
-    path: Assets/_Prototype/Anisotropy/Worlds/Resources/Level1/Level1_WorldA.unity
+    path: Assets/GamePrototype/Legacy/Anisotropy/Worlds/Resources/Level1/Level1_WorldA.unity
     guid: c3aba5326743ba24aa9b109a1b93152f
   - enabled: 1
-    path: Assets/_Prototype/Anisotropy/Worlds/Resources/Level1/Level1_WorldB.unity
+    path: Assets/GamePrototype/Legacy/Anisotropy/Worlds/Resources/Level1/Level1_WorldB.unity
     guid: 1d36afd80cd3be142a70112456cf952c
   - enabled: 1
-    path: Assets/_Prototype/Anisotropy/Worlds/Resources/Level1/Level1_WorldC.unity
+    path: Assets/GamePrototype/Legacy/Anisotropy/Worlds/Resources/Level1/Level1_WorldC.unity
     guid: 23ff8a4a6ecdf474ea50673add87144f
   - enabled: 1
     path: Assets/_Prototype/GameFramework_Test/GameFramework_Test.unity
@@ -36,10 +36,10 @@ EditorBuildSettings:
     path: Assets/_Prototype/Reseter/Scenes/Reseter.unity
     guid: 1fbe210cbbdb4ad42af3fc0c712b9ea6
   - enabled: 1
-    path: Assets/GameKit/Core/Runtime/UGUI/Demo/Demo_UI.unity
+    path: Assets/GameKit/QuickDev/UGUI/TabGroup/Demo/QuickDev_TabGroup.unity
     guid: 2abebf3f9f5a3564780ebfc27ace7e36
   - enabled: 1
-    path: Assets/GameKit/Prototype/Procedure/Scnes/S_Menu.unity
+    path: Assets/GameKit/Procedure/Demo/GameKitDemo_Main.unity
     guid: b9374986be6e4c8488c8121429dceaee
   - enabled: 1
     path: Assets/GameKit/Prototype/Addressable/Scenes/Addressable.unity

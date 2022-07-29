@@ -26,7 +26,7 @@ namespace GameKit
                 panels.Remove(panel.gameObject.name);
         }
 
-        public void Clear()
+        public override void Clear()
         {
             if (panels == null)
                 return;

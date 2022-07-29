@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Character Animator
+  m_EditorClassIdentifier: 
+  m_GroupName: Character Animator
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 1a2a5aab8ac675342834c2261af9c2ae
+  m_SerializeEntries:
+  - m_GUID: dde8c77752be13b49be49d2a687d12c6
+    m_Address: Assets/Prototype/DialogSystem/Demo/Animation/AC_Eason.controller
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - CharacterAnimator
+    - Character Animator
+  - m_GUID: 7c72ec158a1d3e84598f4accd6055231
+    m_Address: Assets/Prototype/DialogSystem/Demo/Animation/AC_Zora.controller
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - CharacterAnimator
+    - Character Animator
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: f3c766b324be3154789a35ae2b9702bb, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 5b225566bcc81d14b9131f7ec06fe461, type: 2}
+    - {fileID: 11400000, guid: 84051e539e28366479cd3e56574337f7, type: 2}

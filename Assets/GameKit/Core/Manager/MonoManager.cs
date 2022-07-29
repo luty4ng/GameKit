@@ -2,18 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using GameKit;
 
 namespace GameKit
 {
     public class MonoManager : SingletonBase<MonoManager>
     {
-        public MonoController controller;
+        public GameKitMonoCenter controller;
         public Dictionary<string, GameObject> globalObjects;
         public MonoManager()
         {
-            GameObject obj = new GameObject("MonoController");
-            controller = obj.AddComponent<MonoController>();
+            GameObject obj = new GameObject("GameKitMonoCenter");
+            controller = obj.AddComponent<GameKitMonoCenter>();
         }
 
         public void AddUpdateListener(UnityAction func)
@@ -21,7 +20,7 @@ namespace GameKit
             controller.AddUpdateListener(func);
         }
 
-        public void RomoveUpdateListener(UnityAction func)
+        public void RemoveUpdateListener(UnityAction func)
         {
             controller.RemoveUpdateListener(func);
         }
@@ -49,11 +48,6 @@ namespace GameKit
                 globalObjects.Add(name, obj);
             }
             Object = globalObjects[name];
-        }
-
-        public Dictionary<string, GameObject> GetObjs()
-        {
-            return globalObjects;
         }
     }
 }

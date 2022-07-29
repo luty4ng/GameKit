@@ -114,7 +114,7 @@ namespace GameKit
             }
         }
 
-        public void Clear()
+        public override void Clear()
         {
             pool.Clear();
             poolObj = null;
