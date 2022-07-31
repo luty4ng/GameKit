@@ -29,11 +29,11 @@ namespace GameKit
                     throw new GameKitException("Entity helper is invalid.");
                 }
 
-                EntityObject entityInstanceObject = ReferencePool.Acquire<EntityObject>();
-                entityInstanceObject.Initialize(name, entityInstance);
-                entityInstanceObject.m_EntityAsset = entityAsset;
-                entityInstanceObject.m_EntityHelper = entityHelper;
-                return entityInstanceObject;
+                EntityObject entityObject = ReferencePool.Acquire<EntityObject>();
+                entityObject.Initialize(name, entityInstance);
+                entityObject.m_EntityAsset = entityAsset;
+                entityObject.m_EntityHelper = entityHelper;
+                return entityObject;
             }
 
             public override void Clear()

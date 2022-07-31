@@ -66,10 +66,12 @@ public static class DialogPhaser
             node.nodeEntity.IsFunctional = true;
             node.nodeEntity.contents = dialogInfo;
         }
-        else // 功能性节点
+        else if (dialogInfo.Split('：').Length == 0) // 功能性节点
         {
             node.nodeEntity.IsFunctional = true;
         }
+        else
+            Utility.Debugger.LogFail("Unsupport content symbol \':\', please replace it.");
 
         bool customLinking = true;
 

@@ -9,6 +9,7 @@ namespace GameKit
         int InstanceCapacity { get; set; }
         float InstanceExpireTime { get; set; }
         int InstancePriority { get; set; }
+        IEntityGroupHelper Helper { get; }
         bool HasEntity(int entityId);
         bool HasEntity(string assetName);
         IEntity GetEntity(int entityId);

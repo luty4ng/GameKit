@@ -92,12 +92,14 @@ namespace GameKit
 
         public void SetEntityHelper(IEntityHelper entityHelper)
         {
+
             if (entityHelper == null)
             {
                 throw new GameKitException("Entity helper is invalid.");
             }
 
             m_EntityHelper = entityHelper;
+
         }
         #endregion
 
@@ -494,7 +496,14 @@ namespace GameKit
                 int serialId = ++m_Serial;
                 m_EntitiesBeingLoaded.Add(entityId, serialId);
                 // m_ResourceManager.LoadAsset(entityAssetName, priority, m_LoadAssetCallbacks, EntityInfo.Create(serialId, entityId, entityGroup, userData));
-                // 加载资源并且抛出事件
+                ResourceManager.instance.GetAssetAsyn(entityAssetName, (UnityEngine.Object obj) =>
+                {
+                    LoadAssetSuccessCallback(entityAssetName, obj, 0f, userData);
+                },
+                () =>
+                {
+                    LoadAssetFailureCallback(entityAssetName, "Load Fail", userData);
+                });
                 return;
             }
 
@@ -537,7 +546,6 @@ namespace GameKit
             {
                 return entityInfo;
             }
-
             return null;
         }
         private void InternalShowEntity(int entityId, string entityAssetName, EntityGroup entityGroup, object entityInstance, float duration, object userData)
@@ -553,7 +561,7 @@ namespace GameKit
                 entity.OnInit(entityId, entityAssetName, entityGroup, userData);
                 entityGroup.AddEntity(entity);
                 entity.OnShow(userData);
-                
+
                 EntityShowSuccessEventArgs eventArgs = EntityShowSuccessEventArgs.Create(entity, duration, userData);
                 EventManager.instance.EventTrigger<EntityShowSuccessEventArgs>(eventArgs.Id, eventArgs);
                 ReferencePool.Release(eventArgs);
@@ -584,10 +592,10 @@ namespace GameKit
             }
 
             m_EntitiesBeingLoaded.Remove(entityInfo.EntityId);
-            EntityObject entityInstanceObject = EntityObject.Create(entityAssetName, entityAsset, m_EntityHelper.InstantiateEntity(entityAsset), m_EntityHelper);
-            entityInfo.EntityGroup.RegisterEntityObject(entityInstanceObject, true);
+            EntityObject entityObject = EntityObject.Create(entityAssetName, entityAsset, m_EntityHelper.InstantiateEntity(entityAsset), m_EntityHelper);
+            entityInfo.EntityGroup.RegisterEntityObject(entityObject, true);
 
-            InternalShowEntity(entityInfo.EntityId, entityAssetName, entityInfo.EntityGroup, entityInstanceObject.Target, duration, entityInfo.UserData);
+            InternalShowEntity(entityInfo.EntityId, entityAssetName, entityInfo.EntityGroup, entityObject.Target, duration, entityInfo.UserData);
             ReferencePool.Release(entityInfo);
         }
 
@@ -611,8 +619,6 @@ namespace GameKit
             EventManager.instance.EventTrigger<EntityShowFailEventArgs>(entityShowFailEventArgs.Id, entityShowFailEventArgs);
             ReferencePool.Release(entityShowFailEventArgs);
         }
-
         #endregion
-
     }
 }

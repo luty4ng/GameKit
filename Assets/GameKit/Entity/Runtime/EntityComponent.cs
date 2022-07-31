@@ -23,7 +23,7 @@ namespace GameKit
         private Transform m_InstanceRoot = null;
 
         [SerializeField]
-        private string m_EntityHelperTypeName = "UnityGameKit.Runtime.DefaultEntityHelper";
+        private string m_EntityHelperTypeName = "GameKit.DefaultEntityHelper";
 
         [SerializeField]
         private EntityHelperBase m_CustomEntityHelper = null;
@@ -32,7 +32,7 @@ namespace GameKit
         private EntityGroup[] m_EntityGroups = null;
 
         [SerializeField]
-        private string m_EntityGroupHelperTypeName = "UnityGameFramework.Runtime.DefaultEntityGroupHelper";
+        private string m_EntityGroupHelperTypeName = "GameKit.DefaultEntityGroupHelper";
 
         [SerializeField]
         private EntityGroupHelperBase m_CustomEntityGroupHelper = null;
@@ -75,7 +75,7 @@ namespace GameKit
                 Utility.Debugger.LogError("Can not create entity helper.");
                 return;
             }
-
+            
             entityHelper.name = "Entity Helper";
             Transform transform = entityHelper.transform;
             transform.SetParent(this.transform);
